@@ -22,13 +22,11 @@ h2 {
 div.content-wrap {
   padding-top: 0px !important;
 }
-div.img
-{
+div.img {
   margin: 0px 5px 25px 5px;
   display: inline-block;
 }
-div.img img
-{
+div.img img {
   border: 1px solid black !important;
   padding: 0px !important;
   margin: 0px !important;
@@ -36,22 +34,19 @@ div.img img
   height: 189px; 
   display: inline;
 }
-div.date
-{
+div.date {
   margin: 5px 8px 0px 8px;
   padding: 3px 3px 3px 3px;
   border-radius: 3px;
   color: #fff;
 }
-p.author
-{
+p.author {
   border: 2px solid;
   border-radius: 5px;
   margin: 0px 5px 0px 5px;
   padding: 3px 3px 3px 3px;
 }
-div.name
-{
+div.name {
   width: 119px;
   height: 56px;
   margin: 0px 5px 0px 5px;
@@ -76,25 +71,31 @@ div.name
 </script>
 
 <script type="text/javascript">
-	var count = 0;
 	jQuery(window).resize(function() {$(".content-wrap").height($(".post-body").height() + 65);});
+
+  function sort(a, b) {
+    return new Date(a.date).getTime() - new Date(b.date).getTime();
+  }
+
 	$(document).ready(function() {
-		var url = "my-books.wilddogio.com"
-		var ref = new Wilddog(url);
-		ref.orderByChild("date").on("child_added", function(datasnapshot) {
-			appendContent(datasnapshot.val());
-		});
-	});
+		$.getJSON("books.json", function(books) {
+      var count = books.length;
+      $("#books_count").html(count + "本");
+
+      books.sort(sort).forEach(function(book) {
+        appendContent(book);
+      })
+    })
+  });
 
 	function appendContent(book) {
-		count++;
-		var impression_url = '<a href="' + book.date.substring(0, 4) + '#' + book.name + '"><img src="' + book.cover + '" title="跳转到读书感悟"></a>';
+    var year = book.date.substring(0, 4);
+		var impression_url = '<a href="' + year + '#' + book.name + '"><img src="' + year + "/covers/" + book.name + '.jpg" title="跳转到读书感悟"></a>';
 		var douban_url = '<a target="_blank" href="' + book.url + '" title="跳转到豆瓣读书"><div class="name">' + book.name + '</div></a>'
 		var author = '<p class="author">' + book.author + '</p>'
 		var date_color = '<div class="date" style="background-color: #5cb85c; border-color: #4cae4c;">' + book.date + '</div>';
 		var content = '<div class="img" display="inline-block">' + impression_url + douban_url + author + date_color + '</div>' + $("#books_read").html();
 		$("#books_read").html(content);
-		$("#books_count").html(count + "本");
 		$(".content-wrap").height($(".post-body").height() + 65);
 	}
 </script>

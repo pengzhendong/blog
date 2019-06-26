@@ -44,12 +44,16 @@ div.friend
 </style>
 
 <script type="text/javascript">
+	function sort(a, b) {
+		return new Date(a.date).getTime() - new Date(b.date).getTime();
+	}
+	
 	$(document).ready(function() { 
-		var url = "friend-links.wilddogio.com"
-		var ref = new Wilddog(url);
-		ref.orderByChild("date").on("child_added", function(datasnapshot) {
-			appendContent(datasnapshot.val());
-		});
+		$.getJSON("friends.json", function(friends) {
+			friends.sort(sort).forEach(function(friend) {
+				appendContent(friend);
+			})
+		})
 	}); 
 	
 	function appendContent(friend) {

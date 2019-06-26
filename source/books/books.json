@@ -1,0 +1,492 @@
+[
+    {
+        "author": "李笑来",
+        "cover": "https://img3.doubanio.com/lpic/s4635492.jpg",
+        "date": "2016-02-29",
+        "name": "把时间当作朋友",
+        "url": "https://book.douban.com/subject/5171244"
+    },
+    {
+        "author": "卡勒德·胡赛尼",
+        "cover": "https://img3.doubanio.com/lpic/s1727290.jpg",
+        "date": "2016-03-11",
+        "name": "追风筝的人",
+        "url": "https://book.douban.com/subject/1770782"
+    },
+    {
+        "author": "渡边淳一",
+        "cover": "https://img1.doubanio.com/lpic/s27301157.jpg",
+        "date": "2016-05-23",
+        "name": "失乐园",
+        "url": "https://book.douban.com/subject/25891771"
+    },
+    {
+        "author": "东野圭吾",
+        "cover": "https://img1.doubanio.com/lpic/s27284878.jpg",
+        "date": "2016-06-16",
+        "name": "解忧杂货店",
+        "url": "https://book.douban.com/subject/25862578"
+    },
+    {
+        "author": "刘慈欣",
+        "cover": "https://img3.doubanio.com/lpic/s27774946.jpg",
+        "date": "2016-06-20",
+        "name": "2018",
+        "url": "https://book.douban.com/subject/26210632"
+    },
+    {
+        "author": "张清平",
+        "cover": "https://img3.doubanio.com/lpic/s2907090.jpg",
+        "date": "2016-06-20",
+        "name": "林徽因传",
+        "url": "https://book.douban.com/subject/2249020"
+    },
+    {
+        "author": "池建强",
+        "cover": "https://s1.ax2x.com/2018/09/03/5B6sPn.jpg",
+        "date": "2016-06-22",
+        "name": "MacTalk 人生元编程",
+        "url": "https://book.douban.com/subject/25826578"
+    },
+    {
+        "author": "今何在",
+        "cover": "https://img3.doubanio.com/lpic/s6509536.jpg",
+        "date": "2016-06-24",
+        "name": "悟空传",
+        "url": "https://book.douban.com/subject/6431994"
+    },
+    {
+        "author": "囧叔",
+        "cover": "https://img3.doubanio.com/lpic/s26542146.jpg",
+        "date": "2016-06-25",
+        "name": "我讲个笑话，你可别哭啊",
+        "url": "https://book.douban.com/subject/24527845"
+    },
+    {
+        "author": "钟殿舟",
+        "cover": "https://img3.doubanio.com/lpic/s27273194.jpg",
+        "date": "2016-07-01",
+        "name": "互联网思维",
+        "url": "https://book.douban.com/subject/25878500"
+    },
+    {
+        "author": "斯科特·扬",
+        "cover": "https://img1.doubanio.com/lpic/s27172838.jpg",
+        "date": "2016-07-02",
+        "name": "如何高效学习",
+        "url": "https://book.douban.com/subject/25783654"
+    },
+    {
+        "author": "刘慈欣",
+        "cover": "https://img1.doubanio.com/lpic/s27760627.jpg",
+        "date": "2016-07-03",
+        "name": "时间移民",
+        "url": "https://book.douban.com/subject/26210607"
+    },
+    {
+        "author": "林徽因",
+        "cover": "https://img1.doubanio.com/lpic/s4080179.jpg",
+        "date": "2016-07-04",
+        "name": "你是那人间的四月天",
+        "url": "https://book.douban.com/subject/4165852"
+    },
+    {
+        "author": "松本行弘",
+        "cover": "https://img3.doubanio.com/lpic/s26393136.jpg",
+        "date": "2016-07-11",
+        "name": "代码的未来",
+        "url": "https://book.douban.com/subject/24536403"
+    },
+    {
+        "author": "夏尔·丹齐格",
+        "cover": "https://img3.doubanio.com/lpic/s9124764.jpg",
+        "date": "2016-07-13",
+        "name": "为什么读书",
+        "url": "https://book.douban.com/subject/10679501"
+    },
+    {
+        "author": "薄迦丘",
+        "cover": "https://img3.doubanio.com/lpic/s4587123.jpg",
+        "date": "2016-07-19",
+        "name": "十日谈",
+        "url": "https://book.douban.com/subject/5378429"
+    },
+    {
+        "author": "诺特伯格",
+        "cover": "https://img3.doubanio.com/lpic/s4599081.jpg",
+        "date": "2016-07-22",
+        "name": "番茄工作法图解",
+        "url": "https://book.douban.com/subject/5916234"
+    },
+    {
+        "author": "刘慈欣",
+        "cover": "https://img3.doubanio.com/lpic/s28357056.jpg",
+        "date": "2016-08-21",
+        "name": "三体全集",
+        "url": "https://book.douban.com/subject/6518605"
+    },
+    {
+        "author": "东野圭吾",
+        "cover": "https://img3.doubanio.com/lpic/s4610502.jpg",
+        "date": "2016-08-25",
+        "name": "白夜行",
+        "url": "https://book.douban.com/subject/3259440"
+    },
+    {
+        "author": "李尚龙",
+        "cover": "https://img3.doubanio.com/lpic/s28110856.jpg",
+        "date": "2016-08-31",
+        "name": "你只是看起来很努力",
+        "url": "https://book.douban.com/subject/26425651"
+    },
+    {
+        "author": "王小波",
+        "cover": "https://img1.doubanio.com/lpic/s8482629.jpg",
+        "date": "2016-10-01",
+        "name": "黄金时代",
+        "url": "https://book.douban.com/subject/1089243"
+    },
+    {
+        "author": "六小龄童",
+        "cover": "https://s1.ax2x.com/2018/10/22/5XBlnq.png",
+        "date": "2016-11-01",
+        "name": "行者",
+        "url": "https://book.douban.com/subject/26806746"
+    },
+    {
+        "author": "池建强",
+        "cover": "https://img3.doubanio.com/lpic/s28339291.jpg",
+        "date": "2016-11-04",
+        "name": "MacTalk 跨越边界",
+        "url": "https://book.douban.com/subject/26663519"
+    },
+    {
+        "author": "余华",
+        "cover": "https://img3.doubanio.com/lpic/s23836852.jpg",
+        "date": "2016-11-08",
+        "name": "活着",
+        "url": "https://book.douban.com/subject/1082154"
+    },
+    {
+        "author": "东野圭吾",
+        "cover": "https://img3.doubanio.com/lpic/s4055190.jpg",
+        "date": "2016-11-14",
+        "name": "嫌疑人 X 的献身",
+        "url": "https://book.douban.com/subject/4117922"
+    },
+    {
+        "author": "东野圭吾",
+        "cover": "https://img3.doubanio.com/lpic/s5909700.jpg",
+        "date": "2017-01-06",
+        "name": "秘密",
+        "url": "https://book.douban.com/subject/3102324"
+    },
+    {
+        "author": "福楼拜",
+        "cover": "https://img1.doubanio.com/lpic/s1153177.jpg",
+        "date": "2017-03-07",
+        "name": "包法利夫人",
+        "url": "https://book.douban.com/subject/1083477"
+    },
+    {
+        "author": "孙皓晖",
+        "cover": "https://s1.ax2x.com/2018/10/22/5XBiiR.jpg",
+        "date": "2017-04-27",
+        "name": "大秦帝国",
+        "url": "https://book.douban.com/subject/3079029"
+    },
+    {
+        "author": "吴翰清",
+        "cover": "https://img3.doubanio.com/lpic/s8977570.jpg",
+        "date": "2017-05-30",
+        "name": "白帽子讲 Web 安全",
+        "url": "https://book.douban.com/subject/10546925"
+    },
+    {
+        "author": "罗银胜",
+        "cover": "https://img1.doubanio.com/lpic/s28774879.jpg",
+        "date": "2017-06-19",
+        "name": "杨绛传",
+        "url": "https://book.douban.com/subject/26802450"
+    },
+    {
+        "author": "吴军",
+        "cover": "https://img3.doubanio.com/lpic/s28268046.jpg",
+        "date": "2017-07-14",
+        "name": "大学之路",
+        "url": "https://book.douban.com/subject/26584286"
+    },
+    {
+        "author": "王爽",
+        "cover": "https://img3.doubanio.com/lpic/s4448052.jpg",
+        "date": "2017-07-17",
+        "name": "汇编语言",
+        "url": "https://book.douban.com/subject/1215178"
+    },
+    {
+        "author": "佩措尔德",
+        "cover": "https://img3.doubanio.com/lpic/s4379914.jpg",
+        "date": "2017-07-21",
+        "name": "编码",
+        "url": "https://book.douban.com/subject/4822685"
+    },
+    {
+        "author": "钱林松/赵海旭",
+        "cover": "https://img3.doubanio.com/lpic/s6940605.jpg",
+        "date": "2017-07-24",
+        "name": "C++ 反汇编与逆向分析",
+        "url": "https://book.douban.com/subject/6849800"
+    },
+    {
+        "author": "丰生强",
+        "cover": "https://img3.doubanio.com/lpic/s24870013.jpg",
+        "date": "2017-08-16",
+        "name": "Android 软件安全与逆向分析",
+        "url": "https://book.douban.com/subject/20556210"
+    },
+    {
+        "author": "吴军",
+        "cover": "https://s1.ax2x.com/2018/10/22/5XBSWe.jpg",
+        "date": "2017-08-16",
+        "name": "浪潮之巅",
+        "url": "https://book.douban.com/subject/26792439"
+    },
+    {
+        "author": "吴军",
+        "cover": "https://s1.ax2x.com/2018/10/22/5XBfrd.jpg",
+        "date": "2017-08-20",
+        "name": "硅谷之谜",
+        "url": "https://book.douban.com/subject/26665230"
+    },
+    {
+        "author": "塞万提斯",
+        "cover": "https://img1.doubanio.com/lpic/s1082449.jpg",
+        "date": "2017-10-28",
+        "name": "堂吉诃德",
+        "url": "https://book.douban.com/subject/1005918"
+    },
+    {
+        "author": "吴军",
+        "cover": "https://s1.ax2x.com/2018/06/28/njMNl.jpg",
+        "date": "2018-02-17",
+        "name": "智能时代",
+        "url": "https://book.douban.com/subject/26838557"
+    },
+    {
+        "author": "东野圭吾",
+        "cover": "https://img3.doubanio.com/lpic/s3960322.jpg",
+        "date": "2018-02-27",
+        "name": "幻夜",
+        "url": "https://book.douban.com/subject/4009552"
+    },
+    {
+        "author": "Philip J.Guo",
+        "cover": "https://s1.ax2x.com/2018/05/21/29kXE.jpg",
+        "date": "2018-03-03",
+        "name": "‘研’磨记",
+        "url": "https://raw.githubusercontent.com/qipeng/phd-grind-chn/master/phd-grind-chn.pdf"
+    },
+    {
+        "author": "古典",
+        "cover": "https://s1.ax2x.com/2018/06/28/njQrY.jpg",
+        "date": "2018-05-09",
+        "name": "拆掉思维里的墙",
+        "url": "https://book.douban.com/subject/4953695"
+    },
+    {
+        "author": "吴晓波",
+        "cover": "https://s1.ax2x.com/2018/06/01/7aoiB.jpg",
+        "date": "2018-05-26",
+        "name": "腾讯传",
+        "url": "https://book.douban.com/subject/26929955"
+    },
+    {
+        "author": "李开复",
+        "cover": "https://s1.ax2x.com/2018/06/28/nj0Wr.jpg",
+        "date": "2018-06-01",
+        "name": "人工智能",
+        "url": "https://book.douban.com/subject/27015112"
+    },
+    {
+        "author": "马尔科姆",
+        "cover": "https://img3.doubanio.com/lpic/s27256934.jpg",
+        "date": "2018-07-06",
+        "name": "异类",
+        "url": "https://book.douban.com/subject/25863621"
+    },
+    {
+        "author": "郑作时",
+        "cover": "https://s1.ax2x.com/2018/08/21/5964PA.jpg",
+        "date": "2018-08-04",
+        "name": "阿里巴巴：天下没有难做的生意",
+        "url": "https://book.douban.com/subject/1424267"
+    },
+    {
+        "author": "吴军",
+        "cover": "https://s1.ax2x.com/2018/09/03/5B6Me3.jpg",
+        "date": "2018-08-27",
+        "name": "见识",
+        "url": "https://book.douban.com/subject/30144978"
+    },
+    {
+        "author": "尤瓦尔·赫拉利",
+        "cover": "https://s1.ax2x.com/2018/09/03/5B6ORK.jpg",
+        "date": "2018-09-02",
+        "name": "人类简史",
+        "url": "https://book.douban.com/subject/25985021"
+    },
+    {
+        "author": "唐石霞",
+        "cover": "https://s1.ax2x.com/2018/09/28/5HCe4S.jpg",
+        "date": "2018-09-25",
+        "name": "我眼中的末代皇帝",
+        "url": "https://book.douban.com/subject/26918822"
+    },
+    {
+        "author": "梁实秋",
+        "cover": "https://s1.ax2x.com/2018/10/19/5T7m9R.jpg",
+        "date": "2018-10-19",
+        "name": "我的人生哲学",
+        "url": "https://book.douban.com/subject/25910593"
+    },
+    {
+        "author": "吴晓波",
+        "cover": "https://s1.ax2x.com/2018/11/07/5myGjn.jpg",
+        "date": "2018-11-07",
+        "name": "大败局",
+        "url": "https://book.douban.com/subject/5379353"
+    },
+    {
+        "author": "黄铁鹰",
+        "cover": "https://s1.ax2x.com/2018/11/10/5mt6Ni.jpg",
+        "date": "2018-11-10",
+        "name": "海底捞你学不会",
+        "url": "https://book.douban.com/subject/6052860"
+    },
+    {
+        "author": "陈玉新",
+        "cover": "https://s1.ax2x.com/2018/11/14/5z4tFH.jpg",
+        "date": "2018-11-14",
+        "name": "雷军传",
+        "url": "https://book.douban.com/subject/30136953/"
+    },
+    {
+        "author": "渡边康弘",
+        "cover": "https://s1.ax2x.com/2018/11/16/5zCC6q.jpg",
+        "date": "2018-11-16",
+        "name": "高效阅读",
+        "url": "https://book.douban.com/subject/27199270"
+    },
+    {
+        "author": "马可·奥勒留",
+        "cover": "https://s1.ax2x.com/2018/11/22/5VB48p.jpg",
+        "date": "2018-11-22",
+        "name": "沉思录",
+        "url": "https://book.douban.com/subject/2359003"
+    },
+    {
+        "author": "李志刚",
+        "cover": "https://s1.ax2x.com/2018/11/23/5VjPZn.jpg",
+        "date": "2018-11-23",
+        "name": "创京东",
+        "url": "https://book.douban.com/subject/26400900"
+    },
+    {
+        "author": "李志刚",
+        "cover": "https://s1.ax2x.com/2018/11/28/5VgVTn.jpg",
+        "date": "2018-11-28",
+        "name": "九败一胜",
+        "url": "https://book.douban.com/subject/25975454"
+    },
+    {
+        "author": "黄仁宇",
+        "cover": "https://s1.ax2x.com/2018/11/30/5YsFH3.jpg",
+        "date": "2018-11-30",
+        "name": "万历十五年",
+        "url": "https://book.douban.com/subject/1041482"
+    },
+    {
+        "author": "增田宗昭",
+        "cover": "https://s1.ax2x.com/2018/12/06/50epql.jpg",
+        "date": "2018-12-06",
+        "name": "知的资本论",
+        "url": "https://book.douban.com/subject/26996693"
+    },
+    {
+        "author": "梁实秋",
+        "cover": "https://s1.ax2x.com/2019/01/11/5dcppE.jpg",
+        "date": "2019-01-11",
+        "name": "梁实秋读书与做人",
+        "url": "https://book.douban.com/subject/26910222"
+    },
+    {
+        "author": "近藤大介",
+        "cover": "https://s1.ax2x.com/2019/01/19/5jG8MG.jpg",
+        "date": "2019-01-19",
+        "name": "中国缺什么，日本缺什么",
+        "url": "https://book.douban.com/subject/22182576"
+    },
+    {
+        "author": "王觉仁",
+        "cover": "https://s1.ax2x.com/2019/02/21/5jo0Sa.jpg",
+        "date": "2019-02-21",
+        "name": "大唐兴亡三百年",
+        "url": "https://book.douban.com/subject/30376497"
+    },
+    {
+        "author": "吴军",
+        "cover": "https://s1.ax2x.com/2019/02/27/5jwmv2.jpg",
+        "date": "2019-02-26",
+        "name": "文明之光",
+        "url": "https://book.douban.com/subject/30151207"
+    },
+    {
+        "author": "尹建莉",
+        "cover": "https://s1.ax2x.com/2019/02/27/5jwQAh.jpg",
+        "date": "2019-02-27",
+        "name": "好妈妈胜过好老师",
+        "url": "https://book.douban.com/subject/3465080"
+    },
+    {
+        "author": "罗伯特·清崎",
+        "cover": "https://s1.ax2x.com/2019/03/04/5G3I9d.jpg",
+        "date": "2019-03-04",
+        "name": "富爸爸，穷爸爸",
+        "url": "https://book.douban.com/subject/1033778"
+    },
+    {
+        "author": "杰西·利弗莫尔",
+        "cover": "https://s1.ax2x.com/2019/03/15/5GHH5J.jpg",
+        "date": "2019-03-15",
+        "name": "股票大作手操盘术",
+        "url": "https://book.douban.com/subject/19952930"
+    },
+    {
+        "author": "高天流云",
+        "cover": "https://s1.ax2x.com/2019/04/20/5GbjNa.jpg",
+        "date": "2019-04-20",
+        "name": "如果这是宋史",
+        "url": "https://book.douban.com/subject/3071235"
+    },
+    {
+        "author": "彼得·蒂尔",
+        "cover": "https://s1.ax2x.com/2019/04/22/5GbNp6.jpg",
+        "date": "2019-04-22",
+        "name": "从0到1",
+        "url": "https://book.douban.com/subject/26297606"
+    },
+    {
+        "author": "罗·格雷厄姆",
+        "cover": "https://s1.ax2x.com/2019/05/10/5GCihd.jpg",
+        "date": "2019-05-10",
+        "name": "黑客与画家",
+        "url": "https://book.douban.com/subject/6021440"
+    },
+    {
+        "author": "太宰治",
+        "cover": "https://s1.ax2x.com/2019/05/17/5GAVjH.jpg",
+        "date": "2019-05-17",
+        "name": "人间失格",
+        "url": "https://book.douban.com/subject/4011670"
+    }
+]
