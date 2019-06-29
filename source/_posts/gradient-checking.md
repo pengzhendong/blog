@@ -1,9 +1,12 @@
+
+
 ---
 title: 梯度检验
 date: 2018-05-31 13:33:50
 updated: 2018-05-31 14:43:23
 tags: Machine Learning
 mathjax: true
+typora-root-url: ./gradient-checking
 ---
 
 ## 前言

@@ -4,6 +4,7 @@ date: 2018-12-06 10:11:22
 updated: 2018-12-06 13:21:15
 tags: Deep Learning
 mathjax: true
+typora-root-url: ./keras-tutorial
 ---
 
 ## 前言

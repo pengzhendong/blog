@@ -4,6 +4,7 @@ date: 2018-05-21 13:56:22
 updated: 2018-05-21 15:54:16
 tags: Deep Learning
 mathjax: true
+typora-root-url: ./deep-neuron-network
 ---
 
 ## 前言

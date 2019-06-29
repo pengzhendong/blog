@@ -4,6 +4,7 @@ date: 2019-01-12 15:53:03
 updated: 2019-01-12 18:26:20
 tags: Deep Learning
 mathjax: true
+typora-root-url: ./face-recognition
 ---
 
 ## 前言

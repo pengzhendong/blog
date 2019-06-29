@@ -4,6 +4,7 @@ date: 2018-05-31 21:04:59
 updated: 2018-05-31 23:13:40
 tags: Machine Learning
 mathjax: true
+typora-root-url: ./feature-scaling
 ---
 
 ## 前言

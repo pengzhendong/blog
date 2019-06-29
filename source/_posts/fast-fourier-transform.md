@@ -4,6 +4,7 @@ date: 2018-10-29 15:04:34
 updated: 2018-10-29 19:34:59
 tags: Deep Learning
 mathjax: true
+typora-root-url: ./fast-fourier-transform
 ---
 
 ## 前言

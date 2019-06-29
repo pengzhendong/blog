@@ -4,6 +4,7 @@ date: 2018-11-26 10:43:02
 updated: 2018-11-26 14:43:53
 tags: Deep Learning
 mathjax: true
+typora-root-url: ./beam-search-and-bleu
 ---
 
 ## 前言
@@ -31,7 +32,7 @@ P(y^{\langle 1 \rangle}=“\text{in}”|x)>P(y^{\langle 1 \rangle}=“\text{jane
 $$
 第二步我们想让前第一个和第二个单词同时出现的概率最大，则在第一个词为**in**、**jane** 和 **september** 的时候，分别计算前两个词的概率，即第一个时间步的输出作为第二个时间步的输入：
 
-![](https://s1.ax2x.com/2018/11/26/5VZ23K.png)
+![](/beam_search.png)
 $$
 P(y^{\langle 1 \rangle},y^{\langle 2 \rangle}|x)=P(y^{\langle 1 \rangle}|x)\times P(y^{\langle 2 \rangle}|x,y^{\langle 1 \rangle})
 $$

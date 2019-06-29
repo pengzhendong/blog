@@ -24,6 +24,7 @@ npm install hexo-renderer-marked --save &&
 npm install hexo-renderer-stylus --save &&
 npm install hexo-server --save &&
 npm install hexo-symbols-count-time --save &&
+npm install hexo-asset-image --save &&
 
 git clone https://github.com/theme-next/theme-next-algolia-instant-search themes/next/source/lib/algolia-instant-search &&
 #git clone https://github.com/theme-next/theme-next-three themes/next/source/lib/three &&

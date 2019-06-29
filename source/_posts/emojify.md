@@ -4,6 +4,7 @@ date: 2018-08-31 10:18:33
 updated: 2018-08-31 12:18:57
 tags: Deep Learning
 mathjax: true
+typora-root-url: ./emojify
 ---
 
 ## 前言

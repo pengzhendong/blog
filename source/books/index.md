@@ -52,9 +52,11 @@ div.name {
   margin: 0px 5px 0px 5px;
   padding: 3px 3px 3px 3px;
 }
+p.image-caption {
+  display: none !important;
+}
 </style>
 
-<script src="https://cdn.wilddog.com/js/client/current/wilddog.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
 
 <div style="text-align: center"><h2 id="books">阅读书单</h2><p id="books_count"></p></div>
@@ -71,7 +73,7 @@ div.name {
 </script>
 
 <script type="text/javascript">
-	jQuery(window).resize(function() {$(".content-wrap").height($(".post-body").height() + 65);});
+	jQuery(window).resize(function() { $(".content-wrap").height($(".post-body").height() + 65); });
 
   function sort(a, b) {
     return new Date(a.date).getTime() - new Date(b.date).getTime();
@@ -90,12 +92,13 @@ div.name {
 
 	function appendContent(book) {
     var year = book.date.substring(0, 4);
-		var impression_url = '<a href="' + year + '#' + book.name + '"><img src="' + year + "/covers/" + book.name + '.jpg" title="跳转到读书感悟"></a>';
+		var impression_url = '<a href="' + year + '#' + book.name + '"><img src="' + year + '/covers/' + book.name + '.jpg" title="跳转到读书感悟"></a>';
 		var douban_url = '<a target="_blank" href="' + book.url + '" title="跳转到豆瓣读书"><div class="name">' + book.name + '</div></a>'
 		var author = '<p class="author">' + book.author + '</p>'
 		var date_color = '<div class="date" style="background-color: #5cb85c; border-color: #4cae4c;">' + book.date + '</div>';
-		var content = '<div class="img" display="inline-block">' + impression_url + douban_url + author + date_color + '</div>' + $("#books_read").html();
-		$("#books_read").html(content);
+		var content = '<div class="img" display="inline-block">' + impression_url + douban_url + author + date_color + '</div>';
+    
+		$("#books_read").html(content + $("#books_read").html());
 		$(".content-wrap").height($(".post-body").height() + 65);
 	}
 </script>

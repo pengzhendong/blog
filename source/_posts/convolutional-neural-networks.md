@@ -4,6 +4,7 @@ date: 2018-12-03 13:16:18
 updated: 2018-12-03 15:16:50
 tags: Deep Learning
 mathjax: true
+typora-root-url: ./convolutional-neural-networks
 ---
 
 ## 前言

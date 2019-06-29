@@ -4,7 +4,7 @@ date: 2018-12-10 15:30:00
 updated: 2018-12-10 18:46:34
 tags: Deep Learning
 mathjax: true
-
+typora-root-url: ./deep-convnet-probe
 ---
 
 ## 前言

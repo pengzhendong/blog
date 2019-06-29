@@ -4,6 +4,7 @@ date: 2018-08-28 11:16:15
 updated: 2018-08-28 14:22:43
 tags: Deep Learning
 mathjax: true
+typora-root-url: ./jazz-with-an-lstm-network
 ---
 
 ## 前言

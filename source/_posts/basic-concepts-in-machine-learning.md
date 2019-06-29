@@ -4,6 +4,7 @@ date: 2018-05-28 13:36:00
 updated: 2018-05-28 15:43:51
 tags: Deep Learning
 mathjax: true
+typora-root-url: ./basic-concepts-in-machine-learning
 ---
 
 ## 前言
@@ -27,12 +28,12 @@ DeepLearning.ai 第二部分内容是改善深层神经网络，主要包括超�
 深度学习中的超参数根据其重要性排序，大概有以下几个：
 
 * <font color="red">学习率 $\alpha$ </font>
-* <font color="orange">Momentum 参数 $\beta$ (默认值：0.9)</font>
+* <font color="orange">Momentum 参数 </font>
 * <font color="orange">隐藏神经元数 #hidden units</font>
 * <font color="orange">小批量的大小 mini-batch size</font>
 * <font color="purple">神经网络层数 #layers</font>
 * <font color="purple">学习率衰减</font>
-* <font color="blue">Adam 算法参数 $\beta_1, \beta_2, \varepsilon$ (默认值：$0.9, 0.999, 10^{-8}$)</font>
+* <font color="blue">Adam 算法参数</font>
 
 ### 超参数的调节
 
@@ -59,17 +60,13 @@ Err(x)&=E\left[(y-\hat f(x))\right]^2 \\\
 $$
 对于训练误差，由于训练数据已知，即输入输出不是变量，常量的期望等于它本身，所以偏差 $\text{Bias}=\hat f(x)-f(x)$，度量着偏离真实函数或参数的误差；方差 $\text{Variance}=\Big(\hat f(x)-\hat f(x)\Big)^2=0$。表示训练误差由偏差和随机误差构成。
 
-对于泛化误差，偏差 $\text{Bias}=E[\hat f(x)]-f(x)$ 度量着偏离真实函数或参数的误差期望；方差 $\text{Variance}=E\left[\Big(\hat f(x)-E[\hat f(x)]\Big)^2\right]$ 度量着数据上任意特定采样可能导致的估计期望的偏差(方差大，则对于不同采样，估计期望不一样)；噪声的方差为随机误差。一般说偏差、方差都是针对泛化来说的：
-
-<img src="https://s1.ax2x.com/2018/05/29/7TrKl.png" style="width:400px">
-
-因为验证集和训练集是同分布随机采样，所以 $E[\hat f(x)]=\hat f(x)$，即泛化误差的偏差的平方等于训练误差(泛化误差=训练误差+方差)。在机器学习中，我们不仅希望降低训练误差(避免欠拟合)，也希望缩小训练误差和泛化误差的差距(避免过拟合)，这样就能缩小泛化误差。
+对于泛化误差，偏差 $\text{Bias}=E[\hat f(x)]-f(x)$ 度量着偏离真实函数或参数的误差期望；方差 $\text{Variance}=E\left[\Big(\hat f(x)-E[\hat f(x)]\Big)^2\right]$ 度量着数据上任意特定采样可能导致的估计期望的偏差(方差大，则对于不同采样，估计期望不一样)；噪声的方差为随机误差。一般说偏差、方差都是针对泛化来说的，因为验证集和训练集是同分布随机采样，所以 $E[\hat f(x)]=\hat f(x)$，即泛化误差的偏差的平方等于训练误差(泛化误差=训练误差+方差)。在机器学习中，我们不仅希望降低训练误差(避免欠拟合)，也希望缩小训练误差和泛化误差的差距(避免过拟合)，这样就能缩小泛化误差。
 
 ### 欠拟合/过拟合
 
-假设 $y=f(x)+\epsilon=sin(2\pi x)+\epsilon, x \in [0, 1]$ (“<font color="#00FF00">---</font>” 表示)，根据已有数据 (“<font color="blue">o</font>” 表示)，我们只能猜测它是一个 M 多项式 (“<font color="red">---</font>” 表示)。
+假设 $y=f(x)+\epsilon=sin(2\pi x)+\epsilon, x \in [0, 1]$，根据已有数据，我们只能猜测它是一个 M 多项式。
 
-![](https://s1.ax2x.com/2018/05/29/7Xd26.png)
+![](/polynomials.jpg)
 
 M = 0, 1 则欠拟合，因为模型不能在训练集上获得足够低的误差，所以偏差比较大。对于 M = 0，$\hat f(x)=c$ **泛化误差**为：
 $$
@@ -94,13 +91,7 @@ Err(x)&=E\left[(y-\hat f(x))\right]^2 \\\
 &= 0+E[\epsilon^2]+\sigma^2
 \end{align}
 $$
-所以过拟合会导致方差大；M = 3 就是一个比较合适的模型，偏差和方差权衡得比较好。模型泛化误差、偏差、方差和模型的复杂度的关系如下图所示，模型越复杂越能拟合训练数据，所以偏差越小，但是由于拟合了噪声越多，所以遇到新数据时，泛化能力越弱，方差越大：
-
-![](https://s1.ax2x.com/2018/05/29/7XLt9.png)
-
-模型的训练误差、泛化误差和模型的复杂度的关系如下图所示：
-
-![](https://s1.ax2x.com/2018/05/29/7msSR.jpg)
+所以过拟合会导致方差大；M = 3 就是一个比较合适的模型，偏差和方差权衡得比较好。模型泛化误差、偏差、方差和模型的复杂度的关系，模型越复杂越能拟合训练数据，所以偏差越小，但是由于拟合了噪声越多，所以遇到新数据时，泛化能力越弱，方差越大。
 
 对于偏差和方差的分析要基于最优误差(贝叶斯误差)，即对于一个问题，如果机器学习算法的偏差为 10%，而人类分析的误差为 15%，那么就不能说该算法的偏差高。假设人类错误率为 0%，且训练误差和验证误差如下表所示，则有：
 
