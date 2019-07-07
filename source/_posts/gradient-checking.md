@@ -1,12 +1,10 @@
-
-
 ---
 title: 梯度检验
 date: 2018-05-31 13:33:50
 updated: 2018-05-31 14:43:23
 tags: Machine Learning
-mathjax: true
 typora-root-url: ./gradient-checking
+mathjax: true
 ---
 
 ## 前言
@@ -32,10 +30,6 @@ $$
 * 对称差分：$\frac{(3+0.01)^2−(3-0.01)^2}{0.02}=6.045$
 
 ## 梯度检验
-
-假设模型的前向传播和反向传播如下图所示：
-
-![](https://s1.ax2x.com/2018/05/31/7uKNE.png)
 
 代价函数关于参数的梯度的定义:
 $$

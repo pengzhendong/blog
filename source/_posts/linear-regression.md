@@ -28,17 +28,15 @@ mathjax: true
 
 一个餐厅的 CEO 考虑在不同的城市开一家新店，所以希望能根据城市人口的数量(先不考虑其他因素，即一元线性回归)预测商铺的利润 $y$ ，以决定在哪座城市开店。
 
-![eZEd3.png](https://s1.ax2x.com/2018/03/17/eZEd3.png)
-
-其他连锁店的数据如上图所示，商铺利润 $y$ 和城市人口数量 $x_1$ 之间大体上呈线性关系，所以可以使用线性回归的方法学习出这个关系，即找到 $\boldsymbol{\theta}$，那么给定一个新的城市人口数时候，就可以根据 $\boldsymbol{x}$ 尽准确预测可能出商铺利润 $h_\boldsymbol{\theta}(\boldsymbol{x})$。
+商铺利润 $y$ 和城市人口数量 $x_1$ 之间大体上呈线性关系，所以可以使用线性回归的方法学习出这个关系，即找到 $\boldsymbol{\theta}$，那么给定一个新的城市人口数时候，就可以根据 $\boldsymbol{x}$ 尽准确预测可能出商铺利润 $h_\boldsymbol{\theta}(\boldsymbol{x})$。
 
 ### 符号解释
 
-- $\boldsymbol{x}^{(i)}$：“输入”变量，也叫做输入特征。例如上图中的 $\boldsymbol{x}^{(i)}=(1; x^{(i)}_1)$, $x^{(i)}_1$ 就是第 $i$ 座城市的人口数量。
+- $\boldsymbol{x}^{(i)}$：“输入”变量，也叫做输入特征。例如 $\boldsymbol{x}^{(i)}=(1; x^{(i)}_1)$, $x^{(i)}_1$ 就是第 $i$ 座城市的人口数量。
 $$
 \boldsymbol{X}=\begin{bmatrix} - (\boldsymbol{x}^{(1)})^\mathrm{T} - \\\ . \\\ . \\\ . \\\ - (\boldsymbol{x}^{(m)})^\mathrm{T} - \end{bmatrix}=\begin{bmatrix} 1 & x^{(1)}_1 \\\ . & . \\\ . & . \\\ . & .\\\ 1 & x^{(m)}_1 \end{bmatrix}\quad
 $$
-- $y^{(i)}$：“输出”，也叫做目标变量。例如上图中第 $i$ 座城市的利润。
+- $y^{(i)}$：“输出”，也叫做目标变量。例如第 $i$ 座城市的利润。
 $$
 \boldsymbol{y}=\begin{bmatrix} y^{(1)} \\\ . \\\ . \\\ . \\\ y^{(m)} \end{bmatrix}\quad
 $$
@@ -56,9 +54,7 @@ $$
 
 如何找到 $\boldsymbol{\theta}$ 就需要了解什么样的 $\boldsymbol{\theta}$ 能使预测结果更准确。如果 $h_\boldsymbol{\theta1}(\boldsymbol{x})$ 与真实的结果 $y$ 之间的<font color= red size=4>差别</font>比  $h_\boldsymbol{\theta2}(\boldsymbol{x})$ 与真实的结果 $y$ 之间的差别更小，那么 $\boldsymbol{\theta1}$ 就比 $\boldsymbol{\theta2}$ 更好，能使预测结果更准确。
 
-![eP6PH.png](https://s1.ax2x.com/2018/03/17/eP6PH.png)
-
-例如上图中明显 $\boldsymbol{\theta1}$ 就比 $\boldsymbol{\theta2}$ 更好，因为直观上使用 $\boldsymbol{\theta1}$ 预测出来的利润 $h_\boldsymbol{\theta1}(\boldsymbol{x})$ 与真实利润 $y$ 之间的差别更小，但是如何用数学语言衡量 $h_\boldsymbol{\theta}(\boldsymbol{x})$ 和 $y$ 之间的差别呢？。
+假设使用 $\boldsymbol{\theta1}$ 预测出来的利润 $h_\boldsymbol{\theta1}(\boldsymbol{x})$ 与真实利润 $y$ 之间的差别更小，但是如何用数学语言衡量 $h_\boldsymbol{\theta}(\boldsymbol{x})$ 和 $y$ 之间的差别呢？。
 
 ### 损失函数、代价函数和目标函数
 
@@ -79,9 +75,7 @@ $$
    * 后验：用最大后验估计模型参数
    * ...
 
-线性回归使用均方误差作为代价函数，因此可以算出上图中 $MSE(\boldsymbol{\theta1})$ 比 $MSE(\boldsymbol{\theta2}) $ 更小，即 $\boldsymbol{\theta1}$ 能使预测结果更准确。$MSE(\boldsymbol{\theta1})$ 为图中红色线段之和的平均：
-
-![eZnpq.png](https://s1.ax2x.com/2018/03/17/eZnpq.png)
+线性回归使用均方误差作为代价函数，因此可以算出中 $MSE(\boldsymbol{\theta1})$ 比 $MSE(\boldsymbol{\theta2}) $ 更小，即 $\boldsymbol{\theta1}$ 能使预测结果更准确。$MSE(\boldsymbol{\theta1})$ 为每个点到预测结果的距离（每个点与横坐标作垂线，与预测结果的交点）之和的平均：
 
 但是在以均方误差作为性能度量的前提下，是不是还存在 $\boldsymbol{\theta^{\*}}$ 能使预测结果 $\boldsymbol{\theta1}$ 的预测结果更准确？如何找到最准确的 $\boldsymbol{\theta^{\*}}$ 是一个凸优化问题，更准确地说这是一个最小二乘问题。
 
@@ -89,9 +83,7 @@ $$\boldsymbol{\theta^{*}} = \arg \min_{\boldsymbol{\theta}}\frac{1}{m}\sum_{i=1}
 
 ## 最小二乘问题
 
-线性回归的代价函数是一个二次函数且半正定，所以这是一个最小二乘问题。所以最小化 $MSE(\boldsymbol{\theta})$ 求解 $\boldsymbol{\theta}$ 的过程也叫做最小二乘“参数估计”。一元线性回归的代价函数图是一个“碗状”图，如下图所示:
-
-![eP5CS.png](https://s1.ax2x.com/2018/03/17/eP5CS.png)
+线性回归的代价函数是一个二次函数且半正定，所以这是一个最小二乘问题。所以最小化 $MSE(\boldsymbol{\theta})$ 求解 $\boldsymbol{\theta}$ 的过程也叫做最小二乘“参数估计”。一元线性回归的代价函数图是一个“碗状”图。
 
 ### 解析解
 
@@ -105,9 +97,7 @@ $$\boldsymbol{\theta}=(\boldsymbol{X}^ \mathrm{T}\boldsymbol{X})^{-1}\boldsymbol
 
 ### 梯度下降算法
 
-当 $n>10000$ 或者最小二乘问题是非线性的，可以考虑使用梯度下降算法。梯度下降是迭代法的一种，常用于求解最小二乘问题。在最小化代价函数时，可以通过梯度下降法来一步步的迭代求解(通过一个已经找到的 $\boldsymbol{\theta}$ 和迭代公式去算更好的 $\boldsymbol{\theta}$)，最后得到最小化的代价函数和模型参数值 $\boldsymbol{\theta}$，右图为(批量)梯度下降迭代过程：
-
-![eCW5y.png](https://s1.ax2x.com/2018/03/17/eCW5y.png)
+当 $n>10000$ 或者最小二乘问题是非线性的，可以考虑使用梯度下降算法。梯度下降是迭代法的一种，常用于求解最小二乘问题。在最小化代价函数时，可以通过梯度下降法来一步步的迭代求解(通过一个已经找到的 $\boldsymbol{\theta}$ 和迭代公式去算更好的 $\boldsymbol{\theta}$)，最后得到最小化的代价函数和模型参数值 $\boldsymbol{\theta}$。
 
 梯度下降算法涉及到求代价函数 $J(\boldsymbol{\theta}) = \frac{1}{m} \sum_{i=1}^m\left(h_\boldsymbol{\theta}(\boldsymbol{x}^{(i)})-y^{(i)}\right)^2$ 的梯度(即[导数](https://www.zhihu.com/question/28684811/answer/159589897))，为了计算方便，一般 $J(\boldsymbol{\theta}) = \frac{1}{2m} \sum_{i=1}^m\left(h_\boldsymbol{\theta}(\boldsymbol{x}^{(i)})-y^{(i)}\right)^2$，根据链式求导法则得 $J(\boldsymbol{\theta})$ 在 $\theta_j$ 方向上的梯度的表达式为：
 
@@ -117,7 +107,7 @@ $$\nabla=\frac{\partial{J(\boldsymbol{\theta})}}{\partial{\theta_j}}=\frac{\part
 
 $$\theta_j:=\theta_j-\alpha\frac{\partial{J(\boldsymbol{\theta})}}{\partial{\theta_j}}$$
 
-其中 $\alpha​$ 为学习率，即梯度下降的“步伐”大小，太大会错误最小值导致梯度上升，太小会导致下降速度太慢，一般开始的时候稍微大些然后逐渐变小，当一次迭代梯度下降小于 $10^{-3}​$ 的时候就可以说是收敛了。其中 $m​$ 为梯度下降时使用的样本个数，根据 $m​$ 取值的不同梯度下降算法分为以下三种：
+其中 $\alpha$ 为学习率，即梯度下降的“步伐”大小，太大会错误最小值导致梯度上升，太小会导致下降速度太慢，一般开始的时候稍微大些然后逐渐变小，当一次迭代梯度下降小于 $10^{-3}$ 的时候就可以说是收敛了。其中 $m$ 为梯度下降时使用的样本个数，根据 $m$ 取值的不同梯度下降算法分为以下三种：
 
 1. 批量梯度下降
 2. 随机梯度下降
@@ -147,9 +137,7 @@ for iter = 1:num_iteration
 end
 ```
 
-批量梯度下降和随机梯度下降的时间复杂度一样，但是对于迭代同样的次数，随机梯度下降中的参数更新的次数较多，所以收敛的速度就快。但是由于随机梯度下降计算的梯度是对于这一次所选取的这一个样本的平方损失的梯度，而不是全部样本的均方误差的梯度，所以计算的梯度可能不准确，所以最后不一定能收敛到全局最优点，如图所示：
-
-![erR0z.png](https://s1.ax2x.com/2018/03/17/erR0z.png)
+批量梯度下降和随机梯度下降的时间复杂度一样，但是对于迭代同样的次数，随机梯度下降中的参数更新的次数较多，所以收敛的速度就快。但是由于随机梯度下降计算的梯度是对于这一次所选取的这一个样本的平方损失的梯度，而不是全部样本的均方误差的梯度，所以计算的梯度可能不准确，所以最后不一定能收敛到全局最优点。
 
 在数据量很大的情况下，单个样本的平方损失可能会很接近于全部样本的均方误差，那么随机梯度下降计算的梯度就会很准确，同时收敛的速度也很快。
 

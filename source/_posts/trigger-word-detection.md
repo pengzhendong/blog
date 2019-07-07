@@ -23,15 +23,12 @@ mathjax: true
 * 正面词
 
 <center><audio controls controlsList="nodownload"><source src="https://randy-1251769892.cos.ap-beijing.myqcloud.com/activate.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></center>
-
 * 负面词
 
 <center><audio controls controlsList="nodownload"><source src="https://randy-1251769892.cos.ap-beijing.myqcloud.com/negative.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></center>
-
 * 背景噪声
 
 <center><audio controls controlsList="nodownload"><source src="https://randy-1251769892.cos.ap-beijing.myqcloud.com/background.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></center>
-
 #### 波形图
 
 声音是弹性介质中压力变化形式的机械能，这些压力变化来自振动源的波传播。声音在介质中传播时，会造成介质的压缩和稀疏，从而引起原有环境压强的变化。压缩是比环境压力更高的时段，稀疏是压力低于环境压力的时段。
@@ -184,7 +181,6 @@ pxx, freqs, bins, im = plt.specgram(data[:,0], nfft, fs, noverlap = noverlap)
    ```
 
 <center><audio controls controlsList="nodownload"><source src="https://randy-1251769892.cos.ap-beijing.myqcloud.com/insert_test.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></center>
-
 4. `insert_ones(y, segment_end_ms)` 在 ”activate” 之后插入 1 到标签向量 $y$ 中。
 
    ``` python
@@ -414,7 +410,6 @@ def chime_on_activate(filename, predictions, threshold):
 原音频：
 
 <center><audio controls controlsList="nodownload"><source src="https://randy-1251769892.cos.ap-beijing.myqcloud.com/my_audio.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></center>
-
 接下来对该音频进行预测，如果检测到 “activate”，就发出鸣响：
 
 ``` python
@@ -427,7 +422,6 @@ IPython.display.Audio("./chime_output.wav")
 ![](https://s1.ax2x.com/2018/11/15/5zaL5p.png)
 
 <center><audio controls controlsList="nodownload"><source src="https://randy-1251769892.cos.ap-beijing.myqcloud.com/chime_output.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></center>
-
 Sigmoid 的输出大于 0.5，表示检测到了触发词，因此添加了鸣响。
 
 ## 总结

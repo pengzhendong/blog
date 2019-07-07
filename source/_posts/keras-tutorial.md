@@ -21,7 +21,7 @@ typora-root-url: ./keras-tutorial
 
 这次实验是使用 Keras 来实现照片的情绪分类，根据表情判断一个人是高兴还是不高兴，数据集如下所示：
 
-![](https://s1.ax2x.com/2018/12/05/50a7yu.png)
+![](/house-members.png)
 
 首先载入需要用到的 Keras 相关的包，并且载入数据集进行预处理：
 
@@ -152,7 +152,6 @@ Keras 中还有两个比较好用的功能，即输出模型概况和绘制模�
   SVG(model_to_dot(happyModel).create(prog='dot', format='svg'))
   ```
 
-  <center>![](https://s1.ax2x.com/2018/12/06/50rEiK.png)</center>
 
 ## 总结
 

@@ -34,19 +34,15 @@ FaceNet [2] 神经网络可以将一张人脸图像编码成一个 128 维的向
 
 ### 编码人脸
 
-实验使用 FaceNet 提取人脸特征，这个 ConvNet 网络的架构是 Inception 模型，模型细节可以参考 [inception_blocks.py](https://github.com/pengzhendong/DeepLearning/blob/master/4.%20Convolutional%20Neural%20Networks/Week%204/Face%20Recognition/inception_blocks.py)。输入模型的图像尺寸为 $96\times 96$，即输入维度为 $(m, n_C, n_H, n_W) = (m, 3, 96, 96)$，输出为 $(m, 128)$。通过计算两个向量之间的距离，就可以判断对应的两张人脸图像是否属于同一个人，如下图所示：
+实验使用 FaceNet 提取人脸特征，这个 ConvNet 网络的架构是 Inception 模型，模型细节可以参考 [inception_blocks.py](https://github.com/pengzhendong/DeepLearning/blob/master/4.%20Convolutional%20Neural%20Networks/Week%204/Face%20Recognition/inception_blocks.py)。输入模型的图像尺寸为 $96\times 96$，即输入维度为 $(m, n_C, n_H, n_W) = (m, 3, 96, 96)$，输出为 $(m, 128)$。通过计算两个向量之间的距离，就可以判断对应的两张人脸图像是否属于同一个人。
 
-![](https://s1.ax2x.com/2019/01/12/5dKbPJ.png)
+![](/distance_kiank.png)
 
 如果编码足够好，即模型提取人脸的特征足够好，那么对于同一个人的不同照片，最后计算的距离应该很小；对于不同人脸，计算出的距离应该很大。FaceNet 在训练过程中使用的三重损失函数就可以保证这个模型提取的特征足够好。
 
 #### 三重损失
 
-三重损失的思想是最小化不同人脸的编码距离，最大化同一个人脸的编码距离。给定一张图像 $x$，定义其编码为 $f(x)$，函数 $f$ 即神经网络计算的功能。
-
-![](https://s1.ax2x.com/2019/01/12/5dKuH6.png)
-
-给定三元组图像 $(A, P, N)$，其中：
+三重损失的思想是最小化不同人脸的编码距离，最大化同一个人脸的编码距离。给定一张图像 $x$，定义其编码为 $f(x)$，函数 $f$ 即神经网络计算的功能。给定三元组图像 $(A, P, N)$，其中：
 
 * A: Anchor 图像，即人脸图像
 * P: Positive 图像，与 Anchor 图像为同一个人
@@ -94,8 +90,6 @@ load_weights_from_FaceNet(FRmodel)
 ```
 
 以下为模型在三个人的人脸图像上计算的编码距离，距离越小表示为同一个人的概率越大。
-
-![](https://s1.ax2x.com/2019/01/12/5dKvMG.png)
 
 ## 模型应用
 

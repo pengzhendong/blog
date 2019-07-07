@@ -26,9 +26,7 @@ $$
  f(n) = {O(g(n))}
 $$
 
-$∃ c, n$<sub>$0$</sub>($c, n$<sub>$0$</sub>为正数常数)，使得 $∀ n ≥ n$<sub>$0$</sub> 时，$0 ≤ f(n) ≤ cg(n)$，该符号渐进给出了一个函数的上界，类似于小于等于。
-
-<center><img src="https://s1.ax2x.com/2018/03/14/LK0Un.png" width="200"></center>
+$∃ c, n$<sub>$<$</sub>($c, n$<sub>$<$</sub>为正数常数)，使得 $∀ n ≥ n$<sub>$<$</sub> 时，$0 ≤ f(n) ≤ cg(n)$，该符号渐进给出了一个函数的上界，类似于小于等于。
 
 #### 渐进下界: Ω(Omega)
 
@@ -36,9 +34,7 @@ $$
  f(n) = {Ω(g(n))}
 $$
 
-$∃ c, n​$<sub>$0​$</sub>($c, n​$<sub>$0​$</sub> 为正数常数)，使得 $∀ n ≥ n​$<sub>$0​$</sub> 时，$0 ≤ cg(n) ≤ f(n)​$，该符号渐进给出了一个函数的下界，类似于大于等于。
-
-<center><img src="https://s1.ax2x.com/2018/03/14/LKjc2.png" width="200"></center>
+$∃ c, n$<sub>$<$</sub>($c, n$<sub>$<$</sub> 为正数常数)，使得 $∀ n ≥ n$<sub>$<$</sub> 时，$0 ≤ cg(n) ≤ f(n)$，该符号渐进给出了一个函数的下界，类似于大于等于。
 
 #### 渐进确界: Θ(Theta)
 
@@ -46,9 +42,7 @@ $$
  f(n) = {Θ(g(n))}
 $$
 
-$∃ c$<sub>$1$</sub>, $c$<sub>$2$</sub>, $n$<sub>$0$</sub>(c$<sub>$1$</sub>, $c$<sub>$2$</sub>, $n$<sub>$0$</sub>为正数常数)，使得 $∀ n ≥ n$<sub>$0$</sub> 时，$0 ≤ c$<sub>$1$</sub>$g(n) ≤ f(n) ≤ c$<sub>$2$</sub>$g(n)$，该符号渐进给出了一个函数的上界和下界，$Θ(g(n)) = O(g(n)) ∩ Ω(g(n))$。
-
-<center><img src="https://s1.ax2x.com/2018/03/14/LKOmz.png" width="200"></center>
+$∃ c$<sub>$<$</sub>, $c$<sub>$<$</sub>, $n$<sub>$<$</sub>(c$<sub>$1$</sub>, $c$<sub>$2$</sub>, $n$<sub>$0$</sub>为正数常数)，使得 $∀ n ≥ n$<sub>$0$</sub> 时，$0 ≤ c$<sub>$1$</sub>$g(n) ≤ f(n) ≤ c$<sub>$2$</sub>$g(n)$，该符号渐进给出了一个函数的上界和下界，$Θ(g(n)) = O(g(n)) ∩ Ω(g(n))$。
 
 #### 非渐进紧确上界: ο(O)
 
@@ -61,10 +55,10 @@ $∃ c, n$<sub>$0$</sub>($c, n$<sub>$0$</sub> 为正数常数)，使得 $∀ n �
 #### ω(Omega)
 
 $$
- f(n) = {ω(g(n))}
+f(n) = {ω(g(n))}
 $$
 
-$∃ c, n$<sub>$0$</sub>($c, n$<sub>$0$</sub> 为正数常数)，使得 $∀ n ≥ n$<sub>$0$</sub> 时，$0 ≤ cg(n) < f(n)$，该符号渐进给出了一个函数的非渐近紧确的上界，类似于大于。
+$∃ c, n$<sub>$<$</sub>($c, n$<sub>$<$</sub> 为正数常数)，使得 $∀ n ≥ n$<sub>$<$</sub> 时，$0 ≤ cg(n) < f(n)$，该符号渐进给出了一个函数的非渐近紧确的上界，类似于大于。
 
 ### 递归方程
 
@@ -76,8 +70,6 @@ $$
 
 ### 递归树
 
-<center><img src="https://s1.ax2x.com/2018/03/14/LK4bN.jpg" width="500"></center>
-
 令树的高度为 $h$，则 
 
 $$
@@ -86,7 +78,6 @@ $$
 
 叶子节点数为: 
 <center>$a$<sup>$h$</sup> = $a$<sup>$log$<sub>$b$</sub><sup>$n$</sup></sup> = $a$<sup>$log$<sub>$a$</sub><sup>$n$<sup></sup></sup>/$log$<sub>$a$</sub><sup>$b$<sup></sup></sup></sup> = $n$<sup>$1$/$log$<sub>$a$</sub><sup>$b$<sup></sup></sup></sup> = $n$<sup>$log$<sub>$b$</sub><sup>$a$</sup></sup></center>
-
 #### 1. f(n) 为多项式
 
 因为 $f(n)$ 是多项式，设 $f(n) = O(n$<sup>$k$</sup>$), k ≥ 0$.

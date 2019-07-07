@@ -17,7 +17,7 @@ typora-root-url: ./emojify
 
 训练集 X 中包含 127 个句子，其标签为 0 到 4 分别对应一个 emoji 表情，如下图所示：
 
-![](https://s1.ax2x.com/2018/08/31/5BvpY3.png)
+![](/data_set.png)
 
 现在载入数据集，并且测试一下：
 
@@ -38,7 +38,7 @@ I am proud of your achievements 😄
 
 Emojifier-V1 的概况如下图所示：
 
-![](https://s1.ax2x.com/2018/08/31/5BydTN.png)
+![](/emo_model.png)
 
 该模型比较简单，首先去训练好的 Embedding 中找到每个单词的嵌入，然后对句子中所有单词的嵌入求平均，将其作为输入，输入到一个多分类的全连接网络中，最后预测句子的情感。
 
@@ -100,7 +100,7 @@ Actual
 All          9    9   19   13    6   56
 ```
 
-![](https://s1.ax2x.com/2018/08/31/5Byc9X.png)
+![](/output.png)
 
 矩阵对角线上的颜色比较深，表示模型的表现还不错。但是模型却无法分析 not xxx 这类的短语，因为嵌入矩阵中没有对应的表示，而且单纯地对所有单词的嵌入求平均会丢失输入的单词的顺序，因此需要更好的算法。
 
@@ -108,17 +108,13 @@ All          9    9   19   13    6   56
 
 Emojifier-V2 的概况如下图所示：
 
-![](https://s1.ax2x.com/2018/08/31/5ByeQ6.png)
+![](/emojifier-v2.png)
 
 这是一个两层的 LSTM 序列分类器。这次实验使用 mini-batches 来训练 Keras，因此一个 batch 中的序列的长度应该相同，因此需要补 0。例如一个 batch 中的序列的最大长度为 5，那么 "I love you" 这个句子的表示为 $(e_{i}, e_{love}, e_{you}, \vec{0}, \vec{0})$。
 
 ### Embedding 层
 
-在 Keras 中，嵌入矩阵被表示成一个层，然后将词的索引匹配成嵌入向量。嵌入矩阵可以被训练出来，也可以用一个训练好的矩阵来初始化它。`Embedding()` 层如下图所示：
-
-![](https://s1.ax2x.com/2018/08/31/5ByAXK.png)
-
-输出是一个 (batch size, max input length, dimension of word vectors) 的矩阵。word_to_index 的实现如下所示：
+在 Keras 中，嵌入矩阵被表示成一个层，然后将词的索引匹配成嵌入向量。嵌入矩阵可以被训练出来，也可以用一个训练好的矩阵来初始化它。`Embedding()` 层输出是一个 (batch size, max input length, dimension of word vectors) 的矩阵。word_to_index 的实现如下所示：
 
 ``` python
 def sentences_to_indices(X, word_to_index, max_len):

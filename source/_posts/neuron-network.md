@@ -56,35 +56,30 @@ for j in range(2):
     Y[ix] = j
 ```
 
-![](https://s1.ax2x.com/2018/05/20/xoTW9.png)
-
 实验中使用了 `sklearn.linear_model.LogisticRegressionCV()` 数据进行分类，由于数据线性不可分，因此测试集的准确率只有 47%，因此需要使用多层神经网络进行分类。
-
-![](https://s1.ax2x.com/2018/05/20/xwbTJ.png)
 
 ### 神经网络模型
 
 实验生成的数据是平面(二维)数据，因此输入是一个二维的向量，隐藏层具有四个神经元并且隐藏层使用的激活函数是 `Tanh` 函数，最后一层需要输出属于哪一类的概率，所以只能使用 Sigmoid 激活函数。
 
 * Tanh 函数是双曲正切函数
-  ![](https://s1.ax2x.com/2018/05/22/2m0kG.png)
   $$
   tanh(x)=\frac{sinhx}{coshx}=\frac{e^x-e^{-x}}{e^x+e^{-x}}
   $$
-
-  $$
+  
+$$
   tanh'(x)=sech^2x=1-tanh^2x
   $$
-
-  Tanh 和 Sigmoid 函数可以通过缩放平移重合，为什么 Tanh 函数表现更好？Deep Learning 中给出的解释是：因为 Tanh 函数经过原点，且在原点附近梯度比 Sigmoid 函数的梯度大，所以在训练过程中优化会比较容易。
-
-  Tanh 和 Sigmoid 函数能否拟合任意函数呢？不能！首先来看一下什么叫 `Squashing` (压扁；压制)函数：
-
-  > A function $\Psi: R\to[0, 1]$ is a squashing function if it is non-decreasing, $\lim\limits_{\lambda \to \infty }{\Psi(\lambda)}=1$ and $\lim\limits_{\lambda \to -\infty }{\Psi(\lambda)}=0$.
-
-  显然 Tanh 函数通过缩放平移和 Sigmoid  函数满足这个定义，那么 Squashing 函数有什么性质呢？Hornik 等人在 1989 年中的一篇文章中说道：即使单隐层神经网络，用任意的 Squashing 函数作为激活函数，当神经元数量足够多时，可以拟合任意的博雷尔可测(Borel measurable)函数。那么博雷尔不可测函数又是什么意思呢？
-
-  定义集合 $S$ 为一个博雷尔不可测集合，有
+  
+Tanh 和 Sigmoid 函数可以通过缩放平移重合，为什么 Tanh 函数表现更好？Deep Learning 中给出的解释是：因为 Tanh 函数经过原点，且在原点附近梯度比 Sigmoid 函数的梯度大，所以在训练过程中优化会比较容易。
+  
+Tanh 和 Sigmoid 函数能否拟合任意函数呢？不能！首先来看一下什么叫 `Squashing` (压扁；压制)函数：
+  
+> A function $\Psi: R\to[0, 1]$ is a squashing function if it is non-decreasing, $\lim\limits_{\lambda \to \infty }{\Psi(\lambda)}=1$ and $\lim\limits_{\lambda \to -\infty }{\Psi(\lambda)}=0$.
+  
+显然 Tanh 函数通过缩放平移和 Sigmoid  函数满足这个定义，那么 Squashing 函数有什么性质呢？Hornik 等人在 1989 年中的一篇文章中说道：即使单隐层神经网络，用任意的 Squashing 函数作为激活函数，当神经元数量足够多时，可以拟合任意的博雷尔可测(Borel measurable)函数。那么博雷尔不可测函数又是什么意思呢？
+  
+定义集合 $S$ 为一个博雷尔不可测集合，有
   $$
   f(x) =
   \begin{cases}
@@ -93,10 +88,8 @@ for j in range(2):
   \end{cases}
   $$
   则函数 $f(x)$ 就是博雷尔不可测函数。那么博雷尔不可测集合又是什么呢？这就触及到我的知识盲区了，总之用 Squashing 函数拟合实际问题中的函数是绰绰有余的，也不难想象足够多的 Squashing 函数的线性组合确实能拟合很多函数了。
-
+  
 * 模型结构：
-
-![](https://s1.ax2x.com/2018/05/20/xoXcA.png)
 
 对于一个样本数据 $x^{(i)}$，有：
 $$
@@ -396,11 +389,7 @@ plot_decision_boundary(lambda x: predict(parameters, x.T), X, Y)
 plt.title("Decision Boundary for hidden layer size " + str(4))
 ```
 
-对实验数据进行学习分类，最后输出分类结果如下所示：
-
-![](https://s1.ax2x.com/2018/05/21/29B0G.png)
-
-模型准确率高达 90%，通过调节隐藏层神经元个数，可以发现模型越大(隐藏层神经元越多)，则模型的拟合能力越强，但是达到一定程度后就会对训练集产生过拟合(可以添加正则化项避免过拟合)。本次实验数据结果发现隐藏层神经元个数为 5 的时候拟合能力最好。
+对实验数据进行学习分类，最后输出分类准确率高达 90%，通过调节隐藏层神经元个数，可以发现模型越大(隐藏层神经元越多)，则模型的拟合能力越强，但是达到一定程度后就会对训练集产生过拟合(可以添加正则化项避免过拟合)。本次实验数据结果发现隐藏层神经元个数为 5 的时候拟合能力最好。
 
 ## 参考文献
 

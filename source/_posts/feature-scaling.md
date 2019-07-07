@@ -19,8 +19,6 @@ typora-root-url: ./feature-scaling
 
 人们常说的归一化其实就是普通的特征缩放(scaling)，通过线性变换对数据进行缩放，简化计算的方式，将有量纲的输入，变换为无量纲。例如：房价预测问题中房间的大小 (30~100$m^2$) 和房间数 (3~5)，不同量纲的特征会导致在梯度下降时”步伐“ ($\alpha dw$) 不同，学习率太小收敛慢，学习率太大，有些特征(例如房间大小)的权值甚至可能不会收敛；在使用 Sigmoid 或者 Tanh 作为激活函数时也容易出现饱和现象。(详情参考：[Importance of Feature Scaling in Data Modeling (Part 2)](https://www.robertoreif.com/blog/2017/12/21/importance-of-feature-scaling-in-data-modeling-part-2))
 
-![](https://s1.ax2x.com/2018/06/06/RWZsS.png)
-
 归一化有不同的策略，常用的归一化方法有以下几种：
 
 * Mean Normalization

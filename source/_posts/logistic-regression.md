@@ -24,9 +24,7 @@ mathjax: true
 
 $$h_\boldsymbol{\theta}(\boldsymbol{x})=g(\boldsymbol{\theta}^ \mathrm{T}\boldsymbol{x})=\frac{1}{1+e^{-\boldsymbol{\theta}^ \mathrm{T}\boldsymbol{x}}}$$
 
-因此 $ln\frac{h_\boldsymbol{\theta}(\boldsymbol{x})}{1-h_\boldsymbol{\theta}(\boldsymbol{x})}=\boldsymbol{\theta}^ \mathrm{T}\boldsymbol{x}$，实际上是在用线性回归模型的预测结果去逼近样本真实标记为正例和反例的可能性的比值，即真实标记的对数几率。$g(z)$ 也叫做 `Logistic function` 或者 `Sigmoid function`，其函数图像如下图所示
-
-![Sigmoid](https://s1.ax2x.com/2018/04/27/8KYBK.png)
+因此 $ln\frac{h_\boldsymbol{\theta}(\boldsymbol{x})}{1-h_\boldsymbol{\theta}(\boldsymbol{x})}=\boldsymbol{\theta}^ \mathrm{T}\boldsymbol{x}$，实际上是在用线性回归模型的预测结果去逼近样本真实标记为正例和反例的可能性的比值，即真实标记的对数几率。$g(z)$ 也叫做 `Logistic function` 或者 `Sigmoid function`。
 
 该函数的导数为：
 
@@ -77,15 +75,11 @@ $$P(\theta|X)=\frac{P(X|\theta)P(\theta)}{P(X)}$$
 
 观测到数据之前，一些关于参数 $\theta$ 的假设，即参数 $\theta$ 取某个值的概率。所以 $\theta$ 是一个随机变量，符合一定的概率分布。当先验分布是均匀分布时，贝叶斯方法等价于频率方法。一般伯努利分布把先验分布选择为 Beta 分布，因为它正比于 $\theta$ 和 $1-\theta$ 的幂指数，那么后验分布就会有和先验分布相同的函数形式(共轭性)，接下来观测到更多数据时后验分布就可以扮演先验分布的角色(详情见 PRML 2.1.1)。
 
-下图为 Beta 分布的函数分布图，表示关于参数 $\theta$ 的假设。例如普通的硬币，Beta 分布的超参数 a 和 b 可以取 10，即抛 20 次硬币应该会有 10 次正面朝上和 10 次反面朝上。从图中可以看出，参数 $\theta$ 取 0.5 时先验概率最大，取其他值时先验概率比较小。
+Beta 分布的函数分布图表示关于参数 $\theta$ 的假设。例如普通的硬币，Beta 分布的超参数 a 和 b 可以取 10，即抛 20 次硬币应该会有 10 次正面朝上和 10 次反面朝上。
 
 > 可以简单地把先验概率中的超参数 a 和 b 分别看出 x = 1 和 x = 0 的有效观测次数。
 
-![Beta](https://s1.ax2x.com/2018/04/27/8Kmvp.png)
-
 如果对关于参数 $\theta$ 的假设的把握更大，即抛 100 次硬币应该会有 50 次正面朝上和 50 次反面朝上。那么参数 $\theta$ 取 0.5 的概率就更大，取其他值的概率就更小。
-
-![Beta](https://s1.ax2x.com/2018/04/27/8KXz6.png)
 
 #### 似然函数 $P(X|\theta)$
 
@@ -93,19 +87,11 @@ $$P(\theta|X)=\frac{P(X|\theta)P(\theta)}{P(X)}$$
 
 $$P(X|\theta)=\binom{10}{2}\theta^2(1-\theta)^8$$
 
-函数图像如下图所示，从图中可以看出，参数 $\theta$ 取 0.2 时似然程度最大，取其他值时似然程度比较小。
-
-![Likelihood](https://s1.ax2x.com/2018/04/27/8KeFr.png)
-
-
-
 #### 后验概率 $P(\theta|X)$
 
 通过似然函数修正后，参数 $\theta$ 取某个值的概率。参数 $\theta$ 的概率分布就是后验分布。
 
-对于先验分布为超参数 a = b = 10 的 Beta 分布，似然函数 $P(X|\theta)=\binom{10}{2}\theta^2(1-\theta)^8$ ，可以算出对应的后验分布是超参数为 a = 12，b = 18 的 Beta 分布，函数图如下图所示。参数 $\theta$ 取 0.4 左右后验概率比较大，取其他值时先验概率比较小。
-
-![Bayes](https://s1.ax2x.com/2018/04/27/81lgA.png)
+对于先验分布为超参数 a = b = 10 的 Beta 分布，似然函数 $P(X|\theta)=\binom{10}{2}\theta^2(1-\theta)^8$ ，可以算出对应的后验分布是超参数为 a = 12，b = 18 的 Beta 分布。
 
 > 定量地描述不确定性，并且根据少量新的数据对不确定性进行精确的修改，对接下来要采取的动作进行修改，或者对最终的决策进行修改。
 
@@ -142,11 +128,8 @@ MLE 和 MAP 在优化时的不同就是在于先验项 $-log P(\theta)$。假设
 
 ## 代价函数
 
-由于无法使用均方误差作为代价函数，所以分析当真实标签为 1 时，我们希望 $h_\boldsymbol{\theta}(\boldsymbol{x})$ 尽可能接近于 $1^-$ ，即 $-log(h_\boldsymbol{\theta}(\boldsymbol{x}))$ 尽可能接近于 $0^+$，也就是最小化负对数。
+由于无法使用均方误差作为代价函数，所以分析当真实标签为 1 时，我们希望 $h_\boldsymbol{\theta}(\boldsymbol{x})$ 尽可能接近于 $1^-$ ，即 $-log(h_\boldsymbol{\theta}(\boldsymbol{x}))$ 尽可能接近于 $0^+$，也就是最小化负对数。同理可构造损失函数如下：
 
-![](https://s1.ax2x.com/2018/05/19/x2Y2B.png)
-
-同理可构造损失函数如下：
 $$
 loss\left(h_\boldsymbol{\theta}(\boldsymbol{x}), y\right) =
 \begin{cases}
@@ -160,7 +143,7 @@ $$
 $$
 J(\boldsymbol{\theta}) =-\frac{1}{m}\sum_{i=1}^m\Big(y^{(i)}log\left(h_\boldsymbol{\theta}(\boldsymbol{x}^{(i)})\right)+(1-y^{(i)})log\left(1-h_\boldsymbol{\theta}(\boldsymbol{x}^{(i)})\right)\Big)
 $$
-由 Sigmoid 函数的性质可知 $\frac{\partial{h_\boldsymbol{\theta}(\boldsymbol{x})}}{\partial{\theta_j}}=h_\boldsymbol{\theta}(\boldsymbol{x})(1-h_\boldsymbol{\theta}(\boldsymbol{x}))x_j​$ ，所以在梯度下降求最优值时需要用到的梯度可以推导为：
+由 Sigmoid 函数的性质可知 $\frac{\partial{h_\boldsymbol{\theta}(\boldsymbol{x})}}{\partial{\theta_j}}=h_\boldsymbol{\theta}(\boldsymbol{x})(1-h_\boldsymbol{\theta}(\boldsymbol{x}))x_j$ ，所以在梯度下降求最优值时需要用到的梯度可以推导为：
 $$
 \begin{align}
 \nabla_{\theta_j}J(\boldsymbol{\theta}) & = \frac{\partial{J(\boldsymbol{\theta})}}{\partial{\theta_j}} \\\
@@ -210,7 +193,7 @@ $$
 
 > 示性函数：1{值为真的表达式} = 1
 
-对数似然代价函数 $J(\boldsymbol{\theta}) =-\frac{1}{m} \sum_{i=1}^m(y^{(i)}log(h_\boldsymbol{\theta}(\boldsymbol{x}^{(i)}))+(1-y^{(i)})log(1-h_\boldsymbol{\theta}(\boldsymbol{x}^{(i)})))​$ 可以推广为：
+对数似然代价函数 $J(\boldsymbol{\theta}) =-\frac{1}{m} \sum_{i=1}^m(y^{(i)}log(h_\boldsymbol{\theta}(\boldsymbol{x}^{(i)}))+(1-y^{(i)})log(1-h_\boldsymbol{\theta}(\boldsymbol{x}^{(i)})))$ 可以推广为：
 $$
 J(\boldsymbol{\Theta}) =-\frac{1}{m}\sum_{i=1}^m\sum_{j=0}^11\lbrace y^{(i)}=j\rbrace logp(y^{(i)}=j|\boldsymbol{x}^{(i)};\boldsymbol{\Theta})
 $$
@@ -232,8 +215,6 @@ $$
 ## * 神经网络
 
 > 神经网络中最基本的成分是神经元模型，在生物神经网络是，每个神经元与其他神经元相连，当它“兴奋”时，就会向相连的神经元发送化学物质，从而改变这些神经元内的电位；如果某神经元的电位超过了一个“阈值”，那么它就会被激活，即“兴奋”起来，向其他神经元发送化学物质。
-
-![Neuron](https://s1.ax2x.com/2018/05/03/SuLjN.png)
 
 根据神经元的定义，可以将对率回归看成是一个很简单的神经网络模型。即只有输入层和输出层，如下图所示(来自[Tensorflow](http://playground.tensorflow.org/#activation=sigmoid&batchSize=10&dataset=gauss&regDataset=reg-gauss&learningRate=0.03&regularizationRate=0&noise=40&networkShape=&seed=0.49707&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false&stepButton_hide=false&noise_hide=false))：
 

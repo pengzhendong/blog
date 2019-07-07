@@ -4,6 +4,7 @@ date: 2018-09-10 13:47:00
 updated: 2018-09-10 15:27:23
 tags: Deep Learning
 mathjax: true
+typora-root-url: ./neural-machine-translation
 ---
 
 ## 前言
@@ -54,9 +55,9 @@ X, Y, Xoh, Yoh = preprocess_data(dataset, human_vocab, machine_vocab, Tx, Ty)
 
 Attention 机制如下图左图所示；右图为一个 attention 步，计算的 attention 变量 $\alpha^{\langle t, t' \rangle}$ 将被用来计算每个时间步 $t$ 的上下文变量 $context^{\langle t \rangle}$。
 
-| Attention 机制 | Attention step |
-| :------------: | :------------: |
-| <img src="https://s1.ax2x.com/2018/09/10/5F0gSd.png" style="width:500;height:500px;margin-bottom:0px;">  | <img src="https://s1.ax2x.com/2018/09/10/5F0RPe.png" style="width:500;height:500px;margin-bottom:0px;">  |
+|    Attention 机制    |      Attention step      |
+| :------------------: | :----------------------: |
+| ![](/attn_model.png) | ![](/attn_mechanism.png) |
 
 值得注意的是左图中有两个 LSTM 网络，下面在 attention 机制之前的是一个双向的 LSTM 网络，被称为 pre-attention Bi-LSTM；上面在 attention 机制之后的是一个单向的 LSTM 网络，被称为 post-attention LSTM。pre-attention Bi-LSTM 一共有 $T_x$ 个时间步，post-attention LSTM 一共有 $T_y$ 个时间步。
 
@@ -171,7 +172,7 @@ model.fit([Xoh, s0, c0], outputs, epochs=1, batch_size=100)
 attention_map = plot_attention_map(model, human_vocab, inv_machine_vocab, "Tuesday 09 Oct 1993", num = 7, n_s = 64)
 ```
 
-![](https://s1.ax2x.com/2018/09/10/5FdDVJ.png)
+![](/output.png)
 
 可以看到输出忽略了 "Tuesday"，在输出日期的时候，注意力明显也是放在输入的日期上，虽然图中月份部分翻译的注意力不是很明显。
 

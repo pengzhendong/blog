@@ -18,7 +18,6 @@ typora-root-url: ./jazz-with-an-lstm-network
 数据集是一首长达约8分钟的爵士音乐，下面是其中的一个小片段：
 
 <center><audio controls controlsList="nodownload"><source src="https://randy-1251769892.cos.ap-beijing.myqcloud.com/30s_seq.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio></center>
-
 在这次实验中不用考虑和弦，只需要在数据集上训练出一个 RNN 模型，然后用来生成新的序列。首先加载数据 `data/original_metheny.mid`，然后将它处理成以下形状，每三十个值作为一个序列：
 
 ``` python
@@ -38,7 +37,7 @@ Y 实质上和 X 相同，只不过是偏移了一步。在训练过程中，给
 
 模型的结构如下图所示：
 
-![](https://s1.ax2x.com/2018/08/29/5BzDah.png)
+![](/model.png)
 
 每次从 `original_metheny.mid` 中随机选取 30 个值训练模型。与生成恐龙名字的模型类似，$x^{\langle 1 \rangle} = \vec{0}$ 作为输入的开始。
 
@@ -108,7 +107,7 @@ model.fit([X, a0, c0], list(Y), epochs=100)
 
 ### 生成
 
-![](https://s1.ax2x.com/2018/08/29/5BzTJu.png)
+![](/music_generation.png)
 
 在采样的每个时间步中，输出被用于生成音乐和作为下一个时间步的输入。实验步骤如下：
 
@@ -180,7 +179,6 @@ out_stream = generate_music(inference_model)
 ```
 
 <center><audio controls controlsList="nodownload"><source src="https://randy-1251769892.cos.ap-beijing.myqcloud.com/30s_trained_model.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio></center>
-
 ## 总结
 
 这篇博客写的有点简单，因为 Coursera 的资料也比较全面了，而且和恐龙名字生成模型也很类似。如果我再去仔细分析它各个工具的实现感觉进度有点慢，所以只是简单地实现了作业内容，再加上自己对整个作业的理解。
