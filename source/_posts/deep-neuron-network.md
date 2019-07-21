@@ -36,9 +36,13 @@ $$
 #### Squashing 函数
 
 第一次看到 ReLU 函数，就觉得它虽然是非线性的，但是它不是 Squashing 函数啊！可以通过两个 ReLU 神经元的叠加，构造一个 Squashing 函数：
+
 $$
 \Psi(x)=ReLU(x)-ReLU(x-1)=max(0, x)-max(0, x-1)
 $$
+
+![](/squashing.png)
+
 使用 ReLU 函数作为激活函数的最大好处是激活状态的神经元的梯度不会消失，且梯度固定可以加快学习速度；其次，对于**每个样本数据**，一部分神经元输出为 0 造成了网络的稀疏性，缓解了过拟合问题的发生。虽然**每个样本数据**经过神经网络后的输出都是输入的线性组合，但是不同的输入激活的神经元是不同的，正是因为这种变换引入了非线性。例如单隐层神经网络拟合 $f(x)=x^2$:
 
 * 两个神经元：
@@ -218,7 +222,7 @@ def initialize_parameters_deep(layer_dims):
       caches.append(cache)
       
       return AL, caches
-  ```
+```
 
 #### 代价函数
 
@@ -249,12 +253,12 @@ def compute_cost(AL, Y):
   
 $$
   db^{[l]}=\frac{\partial \mathcal{L} }{\partial b^{[l]}}=\frac{1}{m}\sum_{i = 1}^{m}dZ^{[l]\(i\)}
-  $$
-  
+$$
+
 $$
   dA^{[l-1]}=\frac{\partial \mathcal{L} }{\partial A^{[l-1]}}=W^{[l]\mathrm{T}}dZ^{[l]}
-  $$
-  
+$$
+
 ``` python
   def linear_backward(dZ, cache):
       A_prev, W, b = cache
@@ -265,8 +269,8 @@ $$
       dA_prev = np.dot(W.T, dZ)
       
       return dA_prev, dW, db
-  ```
-  
+```
+
 * 线性-激活反向
   $$
   dZ^{[l]}= dA^{[l]} * g'(Z^{[l]})

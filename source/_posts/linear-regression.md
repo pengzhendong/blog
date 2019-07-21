@@ -4,6 +4,7 @@ date: 2018-03-10 22:00:12
 updated: 2018-03-10 22:56:32
 tags: Machine Learning
 mathjax: true
+typora-root-url: ./linear-regression
 ---
 
 ## 前言
@@ -28,6 +29,8 @@ mathjax: true
 
 一个餐厅的 CEO 考虑在不同的城市开一家新店，所以希望能根据城市人口的数量(先不考虑其他因素，即一元线性回归)预测商铺的利润 $y$ ，以决定在哪座城市开店。
 
+![](/data.png)
+
 商铺利润 $y$ 和城市人口数量 $x_1$ 之间大体上呈线性关系，所以可以使用线性回归的方法学习出这个关系，即找到 $\boldsymbol{\theta}$，那么给定一个新的城市人口数时候，就可以根据 $\boldsymbol{x}$ 尽准确预测可能出商铺利润 $h_\boldsymbol{\theta}(\boldsymbol{x})$。
 
 ### 符号解释
@@ -45,7 +48,6 @@ $$
 - $\boldsymbol{D}=\lbrace(\boldsymbol{x}^{(i)}, y^{(i)}); i=1,…,m)\rbrace$：$m$ 个训练样本组成的训练集，上标 $(i)$ 表示样本在训练集中的索引，和指数没有关系
 
 
-
 $$
 \boldsymbol{D}=\begin{bmatrix}\boldsymbol{X} & \boldsymbol{y}\end{bmatrix}=\begin{bmatrix} 1 & x^{(1)}_1 & y^{(1)} \\\ . & . & . \\\ . & . & . \\\ . & . & . \\\ 1 & x^{(m)}_1 & y^{(m)} \end{bmatrix}\quad
 $$
@@ -54,7 +56,9 @@ $$
 
 如何找到 $\boldsymbol{\theta}$ 就需要了解什么样的 $\boldsymbol{\theta}$ 能使预测结果更准确。如果 $h_\boldsymbol{\theta1}(\boldsymbol{x})$ 与真实的结果 $y$ 之间的<font color= red size=4>差别</font>比  $h_\boldsymbol{\theta2}(\boldsymbol{x})$ 与真实的结果 $y$ 之间的差别更小，那么 $\boldsymbol{\theta1}$ 就比 $\boldsymbol{\theta2}$ 更好，能使预测结果更准确。
 
-假设使用 $\boldsymbol{\theta1}$ 预测出来的利润 $h_\boldsymbol{\theta1}(\boldsymbol{x})$ 与真实利润 $y$ 之间的差别更小，但是如何用数学语言衡量 $h_\boldsymbol{\theta}(\boldsymbol{x})$ 和 $y$ 之间的差别呢？。
+![](/predict.png)
+
+例如上图中明显 $\boldsymbol{\theta1}$ 就比 $\boldsymbol{\theta2}$ 更好，因为直观上使用 $\boldsymbol{\theta1}$ 预测出来的利润 $h_\boldsymbol{\theta1}(\boldsymbol{x})$ 与真实利润 $y$ 之间的差别更小，但是如何用数学语言衡量 $h_\boldsymbol{\theta}(\boldsymbol{x})$ 和 $y$ 之间的差别呢？
 
 ### 损失函数、代价函数和目标函数
 

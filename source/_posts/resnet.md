@@ -4,6 +4,7 @@ date: 2018-12-12 16:55:03
 updated: 2018-12-12 17:42:48
 tags: Deep Learning
 mathjax: true
+typora-root-url: ./resnet
 ---
 
 ## 前言
@@ -16,13 +17,13 @@ mathjax: true
 
 神经网络越深拟合能力就越强，也可以学到不同级别抽象的特征，但是太深就会导致梯度消失等问题，阻碍了网络的收敛。这个问题前面也介绍过，通常是通过标准初始化层和中间的标准化层来解决。这样虽然可以让网络收敛，但是准确度会随着网络的加深而变得饱和，然后退化，一个 20 层和一个 56 层的网络的训练误差和测试误差如下图所示：
 
-![](https://s1.ax2x.com/2018/12/13/5QOf02.png)
+![](/vanishing_grad_kiank.png)
 
 ## 残差网络 ResNet
 
 ResNet[2] 的主要思想就是通过远跳连接（也叫捷径连接）来解决网络过深的问题，远跳连接允许在反向传播的时候，梯度直接传播给更前面的层，结构如下图所示：
 
-![](https://s1.ax2x.com/2018/12/13/5Qb0nX.png)
+![](/skip_connection_kiank.png)
 
 左图为普通的神经网络块的传输，其前向传播的计算步骤为：
 $$
@@ -94,7 +95,7 @@ K.set_learning_phase(1)
 
 实验实现的 Identity block 远跳了两层，同时使用了批标准化来加速网络的训练过程，结构如下图所示：
 
-![](https://s1.ax2x.com/2018/12/13/5Qb4Un.png)
+![](/idblock3_kiank.png)
 
 实现以上残差块的步骤如下所示：
 
@@ -152,7 +153,7 @@ def identity_block(X, f, filters, stage, block):
 
 在输入和输出维度不匹配的时候可以 Convolutional block，与 Identity block 的不同之处就在于在捷径上也有一个卷积层，其结构如下图所示：
 
-![](https://s1.ax2x.com/2018/12/13/5QbcZS.png)
+![](/convblock_kiank.png)
 
 捷径上的卷积层可以用来调节 $x$ 的大小和通道数，调节通道数即上面提到的线性映射。实现步骤如下所示：
 
@@ -208,7 +209,7 @@ def convolutional_block(X, f, filters, stage, block, s=2):
 
 50 层的 ResNet-50 网络结构一共分为 5 个阶段（stage），如下图所示：
 
-![](https://s1.ax2x.com/2018/12/13/5QbEDH.png)
+![](/resnet_kiank.png)
 
 ResNet-50 模型的细节为：
 

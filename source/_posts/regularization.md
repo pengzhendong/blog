@@ -228,10 +228,7 @@ def backward_propagation_with_dropout(X, Y, cache, keep_prob):
 
 ## 参考文献
 
-[1] 吴恩达. DeepLearning. 
-
-[2] Ian Goodfellow, Yoshua Bengio, Aaron Courville. Deep Learning. 人民邮电出版社. 2017.
-
-[3] 周志华. 机器学习. 清华大学出版社.  2016.
-
-[4] 李航. 统计学习方法. 清华大学出版社.  2017.
+1. 吴恩达. DeepLearning. 
+2. Ian Goodfellow, Yoshua Bengio, Aaron Courville. Deep Learning. 人民邮电出版社. 2017.
+3. 周志华. 机器学习. 清华大学出版社. 2016.
+4. 李航. 统计学习方法. 清华大学出版社. 2017.

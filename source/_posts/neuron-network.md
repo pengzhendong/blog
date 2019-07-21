@@ -4,6 +4,7 @@ date: 2018-05-19 22:27:43
 updated: 2018-05-19 23:44:14
 tags: Deep Learning
 mathjax: true
+typora-root-url: ./neuron-network
 ---
 
 ## 前言
@@ -63,6 +64,9 @@ for j in range(2):
 实验生成的数据是平面(二维)数据，因此输入是一个二维的向量，隐藏层具有四个神经元并且隐藏层使用的激活函数是 `Tanh` 函数，最后一层需要输出属于哪一类的概率，所以只能使用 Sigmoid 激活函数。
 
 * Tanh 函数是双曲正切函数
+
+  ![](/tanh.png)
+
   $$
   tanh(x)=\frac{sinhx}{coshx}=\frac{e^x-e^{-x}}{e^x+e^{-x}}
   $$

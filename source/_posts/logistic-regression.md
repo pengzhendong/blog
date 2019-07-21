@@ -4,6 +4,7 @@ date: 2018-04-26 20:24:05
 updated: 2018-04-26 21:32:11
 tags: Machine Learning
 mathjax: true
+typora-root-url: ./logistic-regression
 ---
 
 ## 前言
@@ -25,6 +26,8 @@ mathjax: true
 $$h_\boldsymbol{\theta}(\boldsymbol{x})=g(\boldsymbol{\theta}^ \mathrm{T}\boldsymbol{x})=\frac{1}{1+e^{-\boldsymbol{\theta}^ \mathrm{T}\boldsymbol{x}}}$$
 
 因此 $ln\frac{h_\boldsymbol{\theta}(\boldsymbol{x})}{1-h_\boldsymbol{\theta}(\boldsymbol{x})}=\boldsymbol{\theta}^ \mathrm{T}\boldsymbol{x}$，实际上是在用线性回归模型的预测结果去逼近样本真实标记为正例和反例的可能性的比值，即真实标记的对数几率。$g(z)$ 也叫做 `Logistic function` 或者 `Sigmoid function`。
+
+![](/sigmoid.png)
 
 该函数的导数为：
 
@@ -75,17 +78,25 @@ $$P(\theta|X)=\frac{P(X|\theta)P(\theta)}{P(X)}$$
 
 观测到数据之前，一些关于参数 $\theta$ 的假设，即参数 $\theta$ 取某个值的概率。所以 $\theta$ 是一个随机变量，符合一定的概率分布。当先验分布是均匀分布时，贝叶斯方法等价于频率方法。一般伯努利分布把先验分布选择为 Beta 分布，因为它正比于 $\theta$ 和 $1-\theta$ 的幂指数，那么后验分布就会有和先验分布相同的函数形式(共轭性)，接下来观测到更多数据时后验分布就可以扮演先验分布的角色(详情见 PRML 2.1.1)。
 
-Beta 分布的函数分布图表示关于参数 $\theta$ 的假设。例如普通的硬币，Beta 分布的超参数 a 和 b 可以取 10，即抛 20 次硬币应该会有 10 次正面朝上和 10 次反面朝上。
+下图为 Beta 分布的函数分布图，表示关于参数 $\theta$ 的假设。例如普通的硬币，Beta 分布的超参数 a 和 b 可以取 10，即抛 20 次硬币应该会有 10 次正面朝上和 10 次反面朝上。从图中可以看出，参数 $\theta$ 取 0.5 时先验概率最大，取其他值时先验概率比较小。
 
 > 可以简单地把先验概率中的超参数 a 和 b 分别看出 x = 1 和 x = 0 的有效观测次数。
 
+![](/beta1.png)
+
 如果对关于参数 $\theta$ 的假设的把握更大，即抛 100 次硬币应该会有 50 次正面朝上和 50 次反面朝上。那么参数 $\theta$ 取 0.5 的概率就更大，取其他值的概率就更小。
+
+![](/beta2.png)
 
 #### 似然函数 $P(X|\theta)$
 
 假设参数 $\theta$ 已知后观测到已有数据的概率，是关于参数 $\theta$ 的函数。例如抛 10 次硬币有 2 次正面朝上，那么似然函数
 
 $$P(X|\theta)=\binom{10}{2}\theta^2(1-\theta)^8$$
+
+函数图像如下图所示，从图中可以看出，参数 $\theta$ 取 0.2 时似然程度最大，取其他值时似然程度比较小。
+
+![](/beta3.png)
 
 #### 后验概率 $P(\theta|X)$
 
@@ -128,7 +139,11 @@ MLE 和 MAP 在优化时的不同就是在于先验项 $-log P(\theta)$。假设
 
 ## 代价函数
 
-由于无法使用均方误差作为代价函数，所以分析当真实标签为 1 时，我们希望 $h_\boldsymbol{\theta}(\boldsymbol{x})$ 尽可能接近于 $1^-$ ，即 $-log(h_\boldsymbol{\theta}(\boldsymbol{x}))$ 尽可能接近于 $0^+$，也就是最小化负对数。同理可构造损失函数如下：
+由于无法使用均方误差作为代价函数，所以分析当真实标签为 1 时，我们希望 $h_\boldsymbol{\theta}(\boldsymbol{x})$ 尽可能接近于 $1^-$ ，即 $-log(h_\boldsymbol{\theta}(\boldsymbol{x}))$ 尽可能接近于 $0^+$，也就是最小化负对数。
+
+![](/cost.png)
+
+同理可构造损失函数如下：
 
 $$
 loss\left(h_\boldsymbol{\theta}(\boldsymbol{x}), y\right) =
@@ -201,7 +216,6 @@ $$
 $$
 J(\boldsymbol{\Theta}) =-\frac{1}{m}\sum_{i=1}^m\sum_{j=1}^k1\lbrace y^{(i)}=j\rbrace log\frac{e^{\boldsymbol{\theta}\_j^\mathrm{T}\boldsymbol{x}^{(i)}}}{\sum_{l=1}^ke^{\boldsymbol{\theta}^\mathrm{T}_l\boldsymbol{x}^{(i)}}}
 $$
-
 
 计算梯度公式如下：
 $$

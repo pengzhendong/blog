@@ -4,6 +4,7 @@ date: 2018-11-15 20:16:00
 updated: 2018-11-15 21:22:49
 tags: Deep Learning
 mathjax: true
+typora-root-url: ./trigger-word-detection
 ---
 
 ## 前言
@@ -33,7 +34,7 @@ mathjax: true
 
 声音是弹性介质中压力变化形式的机械能，这些压力变化来自振动源的波传播。声音在介质中传播时，会造成介质的压缩和稀疏，从而引起原有环境压强的变化。压缩是比环境压力更高的时段，稀疏是压力低于环境压力的时段。
 
-![](https://s1.ax2x.com/2018/10/25/5XdAhl.png)
+![](/voice.png)
 
 波形图 (Waveform) 如上所示，总压强等于环境静态压强（即标准大气压 $P$: $10^5$ Pa）加上声音扰动带来的动态压强（即声压 $P_A$）。① 时段声压为 0 即为无声阶段；② 时段有声音扰动；③ 为大气压；④ 为瞬时声压。
 
@@ -52,7 +53,7 @@ plt.plot(time, data)
 plt.show()
 ```
 
-![](https://s1.ax2x.com/2018/10/25/5XdtkJ.png)
+![](/wav.png)
 
 这里的 WAV 文件使用的是 16 位量化数字，因此声压的取值范围是 (-32768, 32767)，音频时长为 10 秒。波形图看不出声音的特征，因此需要对其使用傅里叶变换，得到频谱图再分析声音的特征。
 
@@ -83,7 +84,7 @@ noverlap = 120 # 重叠长度
 pxx, freqs, bins, im = plt.specgram(data[:,0], nfft, fs, noverlap = noverlap)
 ```
 
-![](https://s1.ax2x.com/2018/11/15/5zyaWy.png)
+![](/spectrogram.png)
 
 横坐标为时间，纵坐标为频率。任意给定频率成分，在给定时刻的强弱用相应点的色调的浓淡来表示，颜色越深表示语音能量越强（声音更加响亮）。10 秒音频输出 `pxx` 的时间步长度为：$5511=\frac{10\times fs-nfft}{nfft-overlap}+1$，在原始音频中一共有 441000 个时间步，而在声谱图中一共有 5511 个时间步，因此前者每个时间步代表 0.000023 秒，后者代表 0.0018 秒。也就是说 10 秒的时间可以被离散成不同的数值，例如 GRU 的输出离散成 1375 个时间步，也就是每个时间步 0.0072 秒，模型的输出就表示这个 0.0072 秒内是否有人说过触发词。
 
@@ -99,7 +100,7 @@ pxx, freqs, bins, im = plt.specgram(data[:,0], nfft, fs, noverlap = noverlap)
 
 首先初始化背景噪声的标签，因为里面还没有触发词，所以对于所有的 $t$，有 $y^{\langle t \rangle}=0$。在插入触发词的时候，还需要更新标签 $y^{\langle t \rangle}$。假设在第 5 秒的时候插入了触发词（即输出的第 $687=int(1375\times\frac{5}{10})$ 个时间步），那么我们希望模型在接下来一小段时间内能检测到就行，我们选择 50 个时间步，也就是 $y^{\langle 688 \rangle} = y^{\langle 689 \rangle} = \cdots = y^{\langle 737 \rangle} = 1$。如下图所示，每个触发词后 50 个时间步的标签都是 1：
 
-![](https://s1.ax2x.com/2018/11/15/5zPyFz.jpg)
+![](/label_diagram.png)
 
 合成训练数据还有一个好处就是容易生成标签，如果在录制声音的时候手动标记是非常耗时的。
 
@@ -206,7 +207,7 @@ pxx, freqs, bins, im = plt.specgram(data[:,0], nfft, fs, noverlap = noverlap)
 
    sanity checks: 0.0 1.0 0.0
 
-   ![](https://s1.ax2x.com/2018/11/15/5zPNwr.png)
+   ![](/output1.png)
 
 ### 生成训练样本
 
@@ -295,7 +296,7 @@ from keras.optimizers import Adam
 
 模型结构如下图所示：
 
-![](https://s1.ax2x.com/2018/11/15/5zPntp.png)
+![](/model.png)
 
 该模型的一个关键步骤是一维卷积步骤，它的输入是 5511 个时间步的频谱，然后输出一个 1375 个时间步的输出。从计算的角度而言，卷积层有助于加速模型，经过卷积层后 GRU 仅处理 1375 个时间步而不是 5511 个时间步。两层 GRU 从左往右读入绪论，然后使用全连接神经网络加 Sigmoid 层对 $y^{\langle t \rangle}$ 进行预测，判断用户是否刚刚说过 “activate”。
 
@@ -419,7 +420,7 @@ chime_on_activate(filename, prediction, 0.5)
 IPython.display.Audio("./chime_output.wav")
 ```
 
-![](https://s1.ax2x.com/2018/11/15/5zaL5p.png)
+![](/output2.png)
 
 <center><audio controls controlsList="nodownload"><source src="https://randy-1251769892.cos.ap-beijing.myqcloud.com/chime_output.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></center>
 Sigmoid 的输出大于 0.5，表示检测到了触发词，因此添加了鸣响。
