@@ -79,10 +79,6 @@ Integer num2 = new Integer(1);
 Integer num3 = Integer.valueOf(128);
 ```
 
-
-
-![](https://s1.ax2x.com/2019/04/08/5GQyMy.png)
-
 如果通过反射机制修改对象的 value，那么指向这个对象的其它变量也会改变。下面代码中初始化了两个变量，编译后它们会通过 `valueOf()` 去缓存池中获取对应的对象，通过反射机制修改了 value 的值，缓存池中对象的值也会改变，最后导致 val 的值改变：
 
 ```java
@@ -222,8 +218,6 @@ public String(String original) {
 ```
 
 虽然在堆中重新构造了一个对象，但是并没有复制 value 数组的内容，而是指向同一个 `byte` 数组；将 str3 的内容加入常量池，常量池中有 "World"，所以直接返回其在常量池中的引用给 str4。
-
-![](https://s1.ax2x.com/2019/04/08/5GQK6K.png)
 
 ## 传值
 
