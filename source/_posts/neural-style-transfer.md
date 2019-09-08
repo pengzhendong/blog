@@ -97,7 +97,7 @@ def compute_content_cost(a_C, a_G):
 
 ##### Gram 矩阵
 
-给定展开成两位的特征图矩阵，其由 $n_C$ 个横向量$(v_{1},\dots ,v_{n_H\times n_W})$ 组成。根据定义，Gram 矩阵中每个元素的值 ${\displaystyle G_{ij} = v_{i}^T v_{j} = np.dot(v_{i}, v_{j})  }$，即 $G_{ij}$ 衡量滤波器 $i$ 的激活值 $v_i$ 和滤波器 $j$ 的激活值 $v_j$ 的相似性，如下图所示：
+给定展开成两维的特征图矩阵，其由 $n_C$ 个横向量$(v_{1},\dots ,v_{n_H\times n_W})$ 组成。根据定义，Gram 矩阵中每个元素的值 ${\displaystyle G_{ij} = v_{i}^T v_{j} = np.dot(v_{i}, v_{j})  }$，即 $G_{ij}$ 衡量滤波器 $i$ 的激活值 $v_i$ 和滤波器 $j$ 的激活值 $v_j$ 的相似性，如下图所示：
 
 ![](/NST_GM.png)
 
