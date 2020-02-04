@@ -532,5 +532,11 @@
         "date": "2020-01-29",
         "name": "小王子",
         "url": "https://book.douban.com/subject/20443559"
+    },
+    {
+        "author": "乔治·伽莫夫",
+        "date": "2020-02-03",
+        "name": "从一到无穷大",
+        "url": "https://book.douban.com/subject/1102715"
     }
 ]
