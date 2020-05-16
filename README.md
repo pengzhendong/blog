@@ -17,10 +17,16 @@ $ git clone https://github.com/theme-next/hexo-theme-next themes/next
 ## Theme Config
 
 ``` bash
+$ cp themes/next/_config.yml source/_data/next.yml
+```
+
+Edit `next.yml` to set next config.
+
+``` bash
 modified:   languages/zh-CN.yml
-modified:   layout/_layout.swig
 modified:   layout/_macro/post.swig
-modified:   layout/_partials/share/add-this.swig
+modified:   layout/_partials/footer.swig
+modified:   source/css/_variables/base.styl
 ```
 
 `languages/zh-CN.yml`:
@@ -31,7 +37,7 @@ modified:   layout/_partials/share/add-this.swig
 +  books: 书单
 ```
 
-Move `add-this` from `layout/_layout.swig` to `layout/_macro/post.swig`, and add `<center><br>` for `add-this`.
+Move `add-this` from `_partials/footer.swig` to `layout/_macro/post.swig`, and add `<center><br>` for `add-this`.
 
 ``` yaml
 {% if theme.add_this_id %}
@@ -40,6 +46,12 @@ Move `add-this` from `layout/_layout.swig` to `layout/_macro/post.swig`, and add
 +        {% include '../_partials/share/add-this.swig' %}
     </div>
 {% endif %}
+```
+
+Change font size large in `source/css/_variables/base.styl` to 1em
+
+``` yaml
+$font-size-large          = 1em;
 ```
 
 ## Plugins
