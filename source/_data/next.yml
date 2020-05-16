@@ -179,16 +179,14 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  GitHub: https://github.com/pengzhendong || github
-  Twitter: https://twitter.com/pengzhendong || twitter  
-  Coding: https://coding.net/u/pengzhendong || github-alt
-  Trello: https://trello.com/pengzhendong || trello
-  E-Mail: mailto:275331498@qq.com || envelope
-  FaceBook: https://www.facebook.com/pengzhendong || facebook
-  Telegram: https://t.me/pengzhendong || telegram
-  知乎: https://www.zhihu.com/people/pengzhendong || leanpub
-  微博: https://weibo.com/qq275331498 || weibo
-  关于: /about" target="_self || user
+  GitHub: https://github.com/pengzhendong || fab fa-github
+  Twitter: https://twitter.com/pengzhendong || fab fa-twitter  
+  E-Mail: mailto:275331498@qq.com || fa fa-envelope
+  FaceBook: https://www.facebook.com/pengzhendong || fab fa-facebook
+  Telegram: https://t.me/pengzhendong || fab fa-telegram
+  知乎: https://www.zhihu.com/people/pengzhendong || fab fa-leanpub
+  微博: https://weibo.com/qq275331498 || fab fa-weibo
+  关于: /about" target="_self || fa fa-user
 
 social_icons:
   enable: true
@@ -254,7 +252,7 @@ post_meta:
 symbols_count_time:
   separated_meta: true
   item_text_post: true
-  item_text_total: true
+  item_text_total: false
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: false
