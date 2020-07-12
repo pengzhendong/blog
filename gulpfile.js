@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var minifycss = require('gulp-clean-css');
-var uglify = require('gulp-uglifyes');
+var uglify = require('gulp-terser');
 var htmlmin = require('gulp-htmlmin');
 var htmlclean = require('gulp-htmlclean');
 var imagemin = require('gulp-imagemin');
