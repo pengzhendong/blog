@@ -19,14 +19,14 @@ typora-root-url: ./convolution-and-filters
 
 ### 定义
 
-$f$ 和 $g$ 的卷积写为 $(f\*g)(n)$，其离散的定义为：
+$f$ 和 $g$ 的卷积写为 $(f*g)(n)$，其离散的定义为：
 $$
-(f\*g)[n]=\sum_{\tau=-\infty}^\infty f[\tau]g[n-\tau]
+(f*g)[n]=\sum_{\tau=-\infty}^\infty f[\tau]g[n-\tau]
 $$
 连续的定义为：
 
 $$
-(f\*g)(n)=\int_{-\infty}^\infty f(\tau)g(n-\tau)d\tau
+(f*g)(n)=\int_{-\infty}^\infty f(\tau)g(n-\tau)d\tau
 $$
 其中 $n=\tau+(n-\tau)$，借鉴一下马同学在知乎中的[例子](如何通俗易懂地解释卷积？ - 马同学的回答 - 知乎
 https://www.zhihu.com/question/22298352/answer/228543288)，离散卷积的应用场景：两个普通骰子点数加起来等于四的概率。
@@ -35,7 +35,7 @@ f[1]g[3]+f[2]g[2]+f[3]g[1]
 $$
 符合卷积的定义，写成标准形式就是：
 $$
-(f\*g)[4]=\sum_{m=1}^3f[4-m]g[m]
+(f*g)[4]=\sum_{m=1}^3f[4-m]g[m]
 $$
 连续卷积的应用场景：追踪飞船的位置 $f(t)$，由于噪声的影响，我们需要对得到的结果进行加权平均，时间上越近的测量结果越相关，相关函数为 $g(t)$，所以对飞船的位置的估计为：
 $$
@@ -58,7 +58,7 @@ $$
 > 两个离散信号在时域(time domain)做卷积相当于这两个信号在频域(frequence domain)相乘。
 
 $$
-y[t]=f[t]\*g[t]\leftrightarrow Y[f]=F[f]G[f]
+y[t]=f[t]*g[t]\leftrightarrow Y[f]=F[f]G[f]
 $$
 
 根据定义不难证明以上公式，由于乘法比较简单，因此在计算卷积的时候先将信号从时域转成频域，然后计算 $Y[f]$ ，在将计算结果用傅里叶变换的逆变换转回时域。
@@ -107,7 +107,7 @@ g(x, y)=\sum_{s=-a}^a\sum_{t=-b}^b\omega(s, t)f(x+s, y+t)
 $$
 这个操作叫做**相关**，有点类似于二维卷积操作，不过卷积需要滤波器翻转：
 $$
-\omega(x, y)\*f(x, y)=\sum_{s=-a}^a\sum_{t=-b}^b\omega(s, t)f(x-s, y-t)
+\omega(x, y)*f(x, y)=\sum_{s=-a}^a\sum_{t=-b}^b\omega(s, t)f(x-s, y-t)
 $$
 所以如果滤波器是对称的，那么相关和卷积将得到相同的结果，我们将翻转后的滤波器系数和图像进行卷积即可实现线性空间滤波操作。
 
@@ -177,12 +177,12 @@ subplot(133), f = fftshift(f), imshow(log(1+abs(f)), []);
 
 这里就只在详细介绍理想低通滤波器，它由下面的函数确定：
 $$
-\begin{align\*}
+\begin{align*}
 H(u, v)=\begin{cases}
 1 & D(u, v) \leq D_0 \\\
 0 & D(u, v) > D_0
 \end{cases}
-\end{align\*}
+\end{align*}
 $$
 其中 $D_0$ 是正常数，$D(u, v)$ 是频域中的点 $(u, v)$ 和中心的距离，即
 $$

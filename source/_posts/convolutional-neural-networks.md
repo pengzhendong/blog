@@ -31,11 +31,11 @@ typora-root-url: ./convolutional-neural-networks
 
 对于一张 $n\times n$ 的图片和尺寸为 $f\times f$ 的滤波器，对于步长为 1 的卷积神经网络，卷积后的图片大小是：
 $$
-n\times n \* f\times f \rightarrow (n-f+1)\times (n-f+1)
+n\times n * f\times f \rightarrow (n-f+1)\times (n-f+1)
 $$
 多通道图像的滤波器的通道数要和图像的一致，通道数为 $n_C$ 的立体卷积输出的图像大小为：
 $$
-n\times n\times n_C \* f\times f\times n_C \rightarrow (n-f+1)\times (n-f+1)
+n\times n\times n_C * f\times f\times n_C \rightarrow (n-f+1)\times (n-f+1)
 $$
 
 #### 零填充
@@ -67,7 +67,7 @@ def zero_pad(X, pad):
 
 卷积神经网络中还有一个参数叫做步长（stride），也就是滤波器移动的步长 $s$，卷积后的图片大小是：
 $$
-n\times n \* f\times f \rightarrow (\lfloor\frac{n+2p-f}{s}+1\rfloor)\times (\lfloor\frac{n+2p-f}{s}+1\rfloor)
+n\times n * f\times f \rightarrow (\lfloor\frac{n+2p-f}{s}+1\rfloor)\times (\lfloor\frac{n+2p-f}{s}+1\rfloor)
 $$
 
 对于后面所有内容，如果两个维度上的数值相等，则只记一个维度。例如 $f\times f$ 的滤波器，则说是大小为 $f$ 的滤波器；两个维度上的步长为 $1\times 1$，则说是步长为 1。 
@@ -77,7 +77,7 @@ $$
 步长为 1 的立体 valid 卷积输出的图像是单通道图像，代表图像的某一种特征，可以使用多个提取图像多种特征。在卷积神经网络中，得到输出后通常还需要进行激活函数操作，即加上偏置后经过 ReLU 函数，最后才叠在一起 。假设原图像为 $I$，对于第 $i$ 个滤波器 $f_i$， 输出图像的第 $i$ 个通道 $O_i$ 为：
 
 $$
-O_i=ReLU(I\* f_i+b_i)
+O_i=ReLU(I* f_i+b_i)
 $$
 卷积神经网络的动态视频如下所示：
 

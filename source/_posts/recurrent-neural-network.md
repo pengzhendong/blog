@@ -26,7 +26,7 @@ typora-root-url: ./recurrent-neural-network
   * 序列输入和序列输出，例如机器翻译
   * 同步序列输入和输出，例如视频的帧分类
 
-\* 递归神经网络 (Recursive nerual network) 是空间上的展开，处理的是树状结构信息(例如语法树)；循环神经网络是时间上的展开(也叫时间递归神经网络)，处理的是序列结构信息； RNN 一般指循环神经网络。
+* 递归神经网络 (Recursive nerual network) 是空间上的展开，处理的是树状结构信息(例如语法树)；循环神经网络是时间上的展开(也叫时间递归神经网络)，处理的是序列结构信息； RNN 一般指循环神经网络。
 
 ## 前向传播
 
@@ -159,7 +159,7 @@ $$
 $$
 
 $$
-c^{\langle t\rangle}=\Gamma_f^{\langle t\rangle}\*c^{\langle t-1\rangle}+\Gamma_u^{\langle t\rangle}\*\tilde{c}^{\langle t\rangle}\tag{4}
+c^{\langle t\rangle}=\Gamma_f^{\langle t\rangle}*c^{\langle t-1\rangle}+\Gamma_u^{\langle t\rangle}*\tilde{c}^{\langle t\rangle}\tag{4}
 $$
 
 #### 输出门
@@ -408,54 +408,54 @@ LSTM 细胞的梯度主要分为两部分：门的梯度和参数的梯度，参
   $$
 
   $$
-  d\tilde c^{\langle t\rangle}=dc^{\langle t\rangle}\*\Gamma_u^{\langle t \rangle}+\Gamma_o^{\langle t\rangle}\big(1-\tanh(c^{\langle t\rangle})^2\big)\*\Gamma_u^{\langle t \rangle}\*da^{\langle t\rangle}
+  d\tilde c^{\langle t\rangle}=dc^{\langle t\rangle}*\Gamma_u^{\langle t \rangle}+\Gamma_o^{\langle t\rangle}\big(1-\tanh(c^{\langle t\rangle})^2\big)*\Gamma_u^{\langle t \rangle}*da^{\langle t\rangle}
   $$
 
   $$
-  d\Gamma_u^{\langle t \rangle}=dc^{\langle t\rangle}\*\tilde c^{\langle t\rangle}+\Gamma_o^{\langle t\rangle}\big(1-\tanh(c^{\langle t\rangle})^2\big)\*\tilde c^{\langle t\rangle}\*da^{\langle t\rangle}
+  d\Gamma_u^{\langle t \rangle}=dc^{\langle t\rangle}*\tilde c^{\langle t\rangle}+\Gamma_o^{\langle t\rangle}\big(1-\tanh(c^{\langle t\rangle})^2\big)*\tilde c^{\langle t\rangle}*da^{\langle t\rangle}
   $$
 
   $$
-  d\Gamma_f^{\langle t\rangle}=dc^{\langle t\rangle}\*c^{\langle t-1\rangle}+\Gamma_o^{\langle t\rangle}\big(1-\tanh(c^{\langle t\rangle})^2\big)\*c^{\langle t-1\rangle}\*da^{\langle t\rangle}
+  d\Gamma_f^{\langle t\rangle}=dc^{\langle t\rangle}*c^{\langle t-1\rangle}+\Gamma_o^{\langle t\rangle}\big(1-\tanh(c^{\langle t\rangle})^2\big)*c^{\langle t-1\rangle}*da^{\langle t\rangle}
   $$
 
 * 参数的梯度
   $$
-  dW_f = d\Gamma_f^{\langle t\rangle}\*\Gamma_f^{\langle t\rangle}\*(1-\Gamma_f^{\langle t\rangle})\begin{bmatrix} a^{\langle t-1\rangle} \\\ x^{\langle t\rangle}\end{bmatrix}^T
+  dW_f = d\Gamma_f^{\langle t\rangle}*\Gamma_f^{\langle t\rangle}*(1-\Gamma_f^{\langle t\rangle})\begin{bmatrix} a^{\langle t-1\rangle} \\\ x^{\langle t\rangle}\end{bmatrix}^T
   $$
 
   $$
-  dW_u=d\Gamma_u^{\langle t \rangle}\*\Gamma_u^{\langle t\rangle}\*(1-\Gamma_u^{\langle t\rangle})\*\begin{bmatrix} a^{\langle t-1\rangle} \\\ x^{\langle t\rangle}\end{bmatrix}^T
+  dW_u=d\Gamma_u^{\langle t \rangle}*\Gamma_u^{\langle t\rangle}*(1-\Gamma_u^{\langle t\rangle})*\begin{bmatrix} a^{\langle t-1\rangle} \\\ x^{\langle t\rangle}\end{bmatrix}^T
   $$
 
   $$
-  dW_c=d\tilde c^{\langle t \rangle}\*(1-\tilde c^{\langle t\rangle 2})\*\begin{bmatrix} a^{\langle t-1\rangle} \\\ x^{\langle t\rangle}\end{bmatrix}^T
+  dW_c=d\tilde c^{\langle t \rangle}*(1-\tilde c^{\langle t\rangle 2})*\begin{bmatrix} a^{\langle t-1\rangle} \\\ x^{\langle t\rangle}\end{bmatrix}^T
   $$
 
   $$
-  dW_o=d\Gamma_o^{\langle t\rangle}\*\Gamma_o^{\langle t\rangle}\*(1-\Gamma_o^{\langle t\rangle})\*\begin{bmatrix} a^{\langle t-1\rangle} \\\ x^{\langle t\rangle}\end{bmatrix}^T
+  dW_o=d\Gamma_o^{\langle t\rangle}*\Gamma_o^{\langle t\rangle}*(1-\Gamma_o^{\langle t\rangle})*\begin{bmatrix} a^{\langle t-1\rangle} \\\ x^{\langle t\rangle}\end{bmatrix}^T
   $$
 
 $b_f, b_u, b_c, b_o$ 的梯度只需要将 $\Gamma_f^{\langle t\rangle}, \Gamma_u^{\langle t\rangle}, \tilde c^{\langle t\rangle}, \Gamma_o^{\langle t\rangle}$ 的梯度沿水平方向 (axis=1) 累加即可，当前时间步的输入、上一个时间步的细胞状态和隐藏状态的梯度如下所示：
 $$
 \begin{align}
-da^{\langle t-1\rangle} &= W_f^T\*d\Gamma_f^{\langle t\rangle}\*\Gamma_f^{\langle t\rangle}\*(1-\Gamma_f^{\langle t\rangle})  \\\
-&+ W_u^T \* d\Gamma_u^{\langle t \rangle}\*\Gamma_u^{\langle t\rangle}\*(1-\Gamma_u^{\langle t\rangle}) \\\
-&+ W_c^T \* d\tilde c^{\langle t \rangle}\*(1-\tilde c^{\langle t\rangle 2})  \\\
-&+ W_o^T \* d\Gamma_o^{\langle t\rangle}\*\Gamma_o^{\langle t\rangle}\*(1-\Gamma_o^{\langle t\rangle})
+da^{\langle t-1\rangle} &= W_f^T*d\Gamma_f^{\langle t\rangle}*\Gamma_f^{\langle t\rangle}*(1-\Gamma_f^{\langle t\rangle})  \\\
+&+ W_u^T * d\Gamma_u^{\langle t \rangle}*\Gamma_u^{\langle t\rangle}*(1-\Gamma_u^{\langle t\rangle}) \\\
+&+ W_c^T * d\tilde c^{\langle t \rangle}*(1-\tilde c^{\langle t\rangle 2})  \\\
+&+ W_o^T * d\Gamma_o^{\langle t\rangle}*\Gamma_o^{\langle t\rangle}*(1-\Gamma_o^{\langle t\rangle})
 \end{align}
 $$
 
 $$
-dc^{\langle t-1\rangle} = dc^{\langle t\rangle}\Gamma_f^{\langle t \rangle} + \Gamma_o^{\langle t \rangle} \* (1- \tanh(c^{\langle t-1\rangle})^2)\*\Gamma_f^{\langle t \rangle}\*da^{\langle t\rangle}
+dc^{\langle t-1\rangle} = dc^{\langle t\rangle}\Gamma_f^{\langle t \rangle} + \Gamma_o^{\langle t \rangle} * (1- \tanh(c^{\langle t-1\rangle})^2)*\Gamma_f^{\langle t \rangle}*da^{\langle t\rangle}
 $$
 
 $$
 \begin{align}
-dx^{\langle t \rangle} &= W_f^T\*d\Gamma_f^{\langle t\rangle}\*\Gamma_f^{\langle t\rangle}\*(1-\Gamma_f^{\langle t\rangle}) \\\
-&+ W_u^T \* d\Gamma_u^{\langle t \rangle}\*\Gamma_u^{\langle t\rangle}\*(1-\Gamma_u^{\langle t\rangle}) \\\
-&+ W_c^T \* d\tilde c^{\langle t \rangle}\*(1-\tilde c^{\langle t\rangle 2}) \\\
-&+ W_o^T \* d\Gamma_o^{\langle t\rangle}\*\Gamma_o^{\langle t\rangle}\*(1-\Gamma_o^{\langle t\rangle})
+dx^{\langle t \rangle} &= W_f^T*d\Gamma_f^{\langle t\rangle}*\Gamma_f^{\langle t\rangle}*(1-\Gamma_f^{\langle t\rangle}) \\\
+&+ W_u^T * d\Gamma_u^{\langle t \rangle}*\Gamma_u^{\langle t\rangle}*(1-\Gamma_u^{\langle t\rangle}) \\\
+&+ W_c^T * d\tilde c^{\langle t \rangle}*(1-\tilde c^{\langle t\rangle 2}) \\\
+&+ W_o^T * d\Gamma_o^{\langle t\rangle}*\Gamma_o^{\langle t\rangle}*(1-\Gamma_o^{\langle t\rangle})
 \end{align}
 $$
 

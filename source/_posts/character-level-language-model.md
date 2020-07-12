@@ -130,7 +130,7 @@ def rnn_forward(X, Y, a0, parameters, vocab_size = 27):
 ### 反向传播
 
 $$
-dW_{ya}=\sum_{t=1}^{T_x}dy^{\langle t\rangle}\*a^T
+dW_{ya}=\sum_{t=1}^{T_x}dy^{\langle t\rangle}*a^T
 $$
 
 $$

@@ -240,7 +240,7 @@ $$
 
 $$
 \begin{align}
-dz^{[1]} = W^{[2]\mathrm{T}}dz^{[2]}\*\left(1-tanh^2(z)\right) = W^{[2]\mathrm{T}}dz^{[2]}\*(1-a^{[1]2})
+dz^{[1]} = W^{[2]\mathrm{T}}dz^{[2]}*\left(1-tanh^2(z)\right) = W^{[2]\mathrm{T}}dz^{[2]}*(1-a^{[1]2})
 \end{align}
 $$
 
@@ -254,7 +254,7 @@ $$
 
 导数写在左边还是右边？是否需要转置？点乘还是叉乘？在矩阵求导中有[两种布局](https://en.wikipedia.org/wiki/Matrix_calculus)：分子布局和分母布局，不同布局求导规则不一样 。但是在实验中，我们已知各个变量和导数的维度，所以只需要根据数据的维度计算选择布局即可($dfoo.shape=foo.shape$)。例如：
 $$
-dz^{[1]}=da^{[1]}\*\frac{\partial{a^{[1]}}}{\partial{z^{[1]}}}=W^{[2]\mathrm{T}}dz^{[2]}\*(1-a^{[1]2})
+dz^{[1]}=da^{[1]}*\frac{\partial{a^{[1]}}}{\partial{z^{[1]}}}=W^{[2]\mathrm{T}}dz^{[2]}*(1-a^{[1]2})
 $$
 $m$ 表示样本数量($m = 1$)，由于 $a^{[1]}$ 和 $z^{[1]}$ 只是进行了一个非线性变换，具有相同的维度，所以用点乘；所以只需要求 $da^{[1]}$ 且满足 $da^{[1]}.shape=(n^{[h]}, m)$：
 $$
@@ -276,7 +276,7 @@ db^{[2]}=\frac{1}{m}\sum\limits_{i = 0}^{m}dZ^{[2]}
 $$
 
 $$
-dZ^{[1]}=W^{[2]\mathrm{T}}dZ^{[2]}\*(1-A^{[1]2})
+dZ^{[1]}=W^{[2]\mathrm{T}}dZ^{[2]}*(1-A^{[1]2})
 $$
 $$
 dW^{[1]}=\frac{1}{m}dZ^{[1]}X^{\mathrm{T}}

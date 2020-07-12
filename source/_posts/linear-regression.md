@@ -81,7 +81,7 @@ $$
 
 线性回归使用均方误差作为代价函数，因此可以算出中 $MSE(\boldsymbol{\theta1})$ 比 $MSE(\boldsymbol{\theta2}) $ 更小，即 $\boldsymbol{\theta1}$ 能使预测结果更准确。$MSE(\boldsymbol{\theta1})$ 为每个点到预测结果的距离（每个点与横坐标作垂线，与预测结果的交点）之和的平均：
 
-但是在以均方误差作为性能度量的前提下，是不是还存在 $\boldsymbol{\theta^{\*}}$ 能使预测结果 $\boldsymbol{\theta1}$ 的预测结果更准确？如何找到最准确的 $\boldsymbol{\theta^{\*}}$ 是一个凸优化问题，更准确地说这是一个最小二乘问题。
+但是在以均方误差作为性能度量的前提下，是不是还存在 $\boldsymbol{\theta^{*}}$ 能使预测结果 $\boldsymbol{\theta1}$ 的预测结果更准确？如何找到最准确的 $\boldsymbol{\theta^{*}}$ 是一个凸优化问题，更准确地说这是一个最小二乘问题。
 
 $$\boldsymbol{\theta^{*}} = \arg \min_{\boldsymbol{\theta}}\frac{1}{m}\sum_{i=1}^m\left(h_\boldsymbol{\theta}(\boldsymbol{x}^{(i)})-y^{(i)}\right)^{2}$$
 
