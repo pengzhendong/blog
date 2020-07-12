@@ -10,8 +10,14 @@ $ git config --global core.safecrlf false
 ## Install
 
 ``` bash
-$ npm install -g hexo-cli
+$ npm install hexo-cli -g
 $ git clone https://github.com/theme-next/hexo-theme-next themes/next
+```
+
+## Update
+
+``` bash
+$ npm update
 ```
 
 ## Theme Config
@@ -37,22 +43,7 @@ modified:   source/css/_variables/base.styl
 +  books: 书单
 ```
 
-Move `add-this` from `_partials/footer.swig` to `layout/_macro/post.swig`, and add `<center><br>` for `add-this`.
-
-``` yaml
-{% if theme.add_this_id %}
-    <div>
--        {% include '_partials/share/add-this.swig' %}
-+        {% include '../_partials/share/add-this.swig' %}
-    </div>
-{% endif %}
-```
-
-Change font size large in `source/css/_variables/base.styl` to 1em
-
-``` yaml
-$font-size-large          = 1em;
-```
+Move `add-this` from `layout/_partials/footer.swig` to `layout/_macro/post.swig`, and add `<center><br>` for `add-this`. Change font size large in `source/css/_variables/base.styl` to 1em.
 
 ## Plugins
 
