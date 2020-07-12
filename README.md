@@ -47,6 +47,15 @@ Move `add-this` from `layout/_partials/footer.swig` to `layout/_macro/post.swig`
 
 ## Plugins
 
+### [hexo-renderer-pandoc](https://github.com/wzpan/hexo-renderer-pandoc)
+
+更换渲染器，支持原生 latex，不需要转义
+
+``` bash
+$ npm uninstall hexo-renderer-marked --save
+$ npm install hexo-renderer-pandoc --save
+```
+
 ### [hexo-generator-searchdb](https://github.com/theme-next/hexo-generator-searchdb)
 
 生成搜索数据
