@@ -5,6 +5,7 @@ brew install node@12
 brew link --overwrite --force node@12
 
 npm install -g hexo-cli --save
+npm install -g gulp --save
 cat <<EOF > package.json
 {
   "name": "hexo-site",

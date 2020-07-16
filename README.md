@@ -34,7 +34,43 @@ modified:   layout/_partials/footer.swig
 modified:   source/css/_variables/base.styl
 ```
 
-Move `add-this` from `layout/_partials/footer.swig` to `layout/_macro/post.swig`, and add `<center><br>` for `add-this`.
+Move `add-this` from `layout/_partials/footer.swig` to `layout/_macro/post.swig`, and add `<center><br>` for `add-this`. Git config
+
+提交时转换为 LF，检出时不转换；允许提交包含混合换行符的文件。
+
+```
+ $ git config --global core.autocrlf input
+ $ git config --global core.safecrlf false
+```
+
+## Install
+
+```
+ $ npm install hexo-cli -g
+ $ git clone https://github.com/theme-next/hexo-theme-next themes/next
+```
+
+## Update
+
+```
+ $ npm update
+```
+
+## Theme Config
+
+```
+ $ cp themes/next/_config.yml source/_data/next.yml
+```
+
+Edit `next.yml` to set next config.
+
+```
+ modified:   layout/_macro/post.swig
+ modified:   layout/_partials/footer.swig
+ modified:   source/css/_variables/base.styl
+```
+
+Move `add-this` from `layout/_partials/footer.swig` to `layout/_macro/post.swig`, and add `<center><br>` for `add-this`. Change font size large in `source/css/_variables/base.styl` to 1em.
 
 ## Plugins
 
