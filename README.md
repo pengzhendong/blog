@@ -29,21 +29,12 @@ $ cp themes/next/_config.yml source/_data/next.yml
 Edit `next.yml` to set next config.
 
 ``` bash
-modified:   languages/zh-CN.yml
 modified:   layout/_macro/post.swig
 modified:   layout/_partials/footer.swig
 modified:   source/css/_variables/base.styl
 ```
 
-`languages/zh-CN.yml`:
-
-``` yaml
-   commonweal: 公益 404
-+  friends: 友链
-+  books: 书单
-```
-
-Move `add-this` from `layout/_partials/footer.swig` to `layout/_macro/post.swig`, and add `<center><br>` for `add-this`. Change font size large in `source/css/_variables/base.styl` to 1em.
+Move `add-this` from `layout/_partials/footer.swig` to `layout/_macro/post.swig`, and add `<center><br>` for `add-this`.
 
 ## Plugins
 

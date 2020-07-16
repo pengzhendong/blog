@@ -124,8 +124,8 @@ menu:
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
-  friends: /friends/ || fa fa-users
-  books: /books/ || fa fa-book
+  友链: /friends/ || fa fa-users
+  书单: /books/ || fa fa-book
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
