@@ -105,50 +105,6 @@ $$
 
 遇到高偏差，可以考虑添加多一些数据特征、使用复杂一点的模型或者调低正则项的惩罚因数；遇到高方差，可以考虑使用更多的训练数据、更少的数据特征或者调高正则项的惩罚因数。总之就是不断调整模型，不断尝试，直到找到一个比较合适的模型，能够较好地均衡偏差和方差。
 
-### 无偏估计
-
-估计的偏差被定义为：
-$$
-\text{bias}(\hat{\boldsymbol{\theta}}_m) = E(\hat{\boldsymbol{\theta}}_m) − \boldsymbol{\theta}
-$$
-如果 $\text{bias}(\hat{\boldsymbol{\theta}}_m) = 0$，那么估计量 $\hat{\boldsymbol{\theta}}_m$ 被称为是**无偏** (unbiased)，这意味着 $E(\hat{\boldsymbol{\theta}}_m) = \boldsymbol{\theta}$。无偏估计表示没有系统上的误差，估算的结果的期望值等于真实值，产生误差的原因只可能是随机因素。例如高斯分布的样本均值就是高斯均值参数的无偏估计：
-$$
-\begin{align}
-\text{bias}(\hat{\mu}_m) &= E[\hat{\mu}\_m] - \mu \\\
-& = E\Big[\frac{1}{m}\sum\limits_{i = 0}^{m}x^{(i)}\Big] - \mu \\\
-&= \frac{1}{m}\sum_{i=1}^m E[x^{(i)}] - \mu \\\
-&= \frac{1}{m}\sum_{i=1}^m\mu - \mu \\\
-&= 0
-\end{align}
-$$
-高斯分布的**样本方差**是有偏估计：
-$$
-\begin{align}
-\text{bias}(\hat{\sigma}_m^2) &= E[\hat{\sigma}\_m^2] - \sigma^2 \\\
-&= E\Big[\frac{1}{m}\sum_{i=1}^m(x^{(i)}-\hat{\mu}\_m)^2\Big] - \sigma^2 \\\
-&= \frac{1}{m}E\Big[\sum_{i=1}^m(x^{(i)}-\mu+\mu-\hat{\mu}\_m)^2\Big] - \sigma^2 \\\
-&= \frac{1}{m}E\Big[\sum_{i=1}^m(x^{(i)}-\mu)^2-2\sum_{i=1}^m(x^{(i)}-\mu)(\hat{\mu}\_m-\mu)+m(\hat{\mu}\_m-\mu)^2\Big] - \sigma^2 \\\
-&= \frac{1}{m}\Big[\sum_{i=1}^mE(x^{(i)}-\mu)^2-2mE(\hat{\mu}\_m-\mu)^2+mE(\hat{\mu}\_m-\mu)^2\Big] - \sigma^2 \\\
-&= \frac{1}{m}\Big[m\sigma^2-mE(\hat{\mu}\_m-\mu)^2\Big] - \sigma^2 \\\
-&= E[\hat{\mu}\_m-\mu]^2
-\end{align}
-$$
-其中：
-$$
-\begin{align}
-E[\hat{\mu}\_m-\mu]^2 &= E\Big[\hat{\mu}\_m-E[\hat{\mu}\_m]\Big]^2 \\\
-&= Var(\hat{\mu}\_m) \\\
-&= Var(\frac{\sum_{i=1}^mx^{(i)}}{m}) \\\
-&= \frac{1}{m^2}\sum_{i=1}^mVar(x^{(i)}) \\\
-&= -\frac{m\sigma^2}{m^2} \\\
-&= -\frac{\sigma^2}{m}
-\end{align}
-$$
-高斯分布的无偏样本方差估计(m 个样本，m-1 个自由度，因为总体期望未知，用**样本均值**代替了总体期望，所以少了一个自由度)：
-$$
-\tilde{\sigma}\_m^2 = \frac{1}{m}\sum_{i=1}^m (x^{(i)}-\mu)^2 = \frac{1}{m-1}\sum_{i=1}^m (x^{(i)}-\hat{\mu}_m)^2
-$$
-
 ## 参考文献
 
 [1] 吴恩达. DeepLearning. 
