@@ -133,5 +133,5 @@ deploy:
   type: git
   repo:
     ## vps: git@pengzhendong.cn:blog.git,master
-    github: https://github.com/pengzhendong/pengzhendong.github.io.git,master
+    github: git@github.com/pengzhendong/pengzhendong.github.io.git,master
     coding: https://git.dev.tencent.com/pengzhendong/pengzhendong.git,coding-pages
