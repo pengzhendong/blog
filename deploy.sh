@@ -3,7 +3,6 @@
 git add . &&
 git commit -m "Commit before deploy" &&
 git push -u github &&
-git push -u coding &&
 
 rm -rf .deploy_git &&
 hexo clean &&
