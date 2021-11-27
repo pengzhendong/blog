@@ -132,6 +132,4 @@ theme: next
 deploy:
   type: git
   repo:
-    ## vps: git@pengzhendong.cn:blog.git,master
     github: git@github.com:pengzhendong/pengzhendong.github.io.git,master
-    coding: git@e.coding.net:pengzhendong/pengzhendong.git,coding-pages
