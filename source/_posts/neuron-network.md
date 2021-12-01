@@ -65,7 +65,7 @@ for j in range(2):
 
 * Tanh 函数是双曲正切函数
 
-  ![](/tanh.png)
+  ![](tanh.png)
 
   $$
   tanh(x)=\frac{sinhx}{coshx}=\frac{e^x-e^{-x}}{e^x+e^{-x}}
@@ -314,7 +314,7 @@ def backward_propagation(parameters, cache, X, Y):
 
 > 梯度下降规则：$\theta = \theta - \alpha \frac{\partial J }{ \partial \theta }$
 
-在[线性回归](/2018/03/10/Linear-regression/)中总结过，在梯度下降中好的学习率可以快速收敛，不好的学习率则会发散(实验中默认学习率为1.2)，如下图所示：
+在[线性回归](/2018/03/10/linear-regression/)中总结过，在梯度下降中好的学习率可以快速收敛，不好的学习率则会发散(实验中默认学习率为1.2)，如下图所示：
 
 ![](https://randy-1251769892.cos.ap-beijing.myqcloud.com/sgd.gif)
 

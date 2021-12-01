@@ -17,7 +17,7 @@ typora-root-url: ./convnet-application
 
 这个实验的要求是对手势进行识别，分析图片中的手势表示的是哪个数字（0~6）。手势图像如下所示：
 
-![](/SIGNS.png)
+![](SIGNS.png)
 
 首先载入需要用到的包和数据集，对数据进行简单的预处理：
 
@@ -220,7 +220,7 @@ def model(X_train, Y_train, X_test, Y_test, learning_rate=0.009,
 _, _, parameters = model(X_train, Y_train, X_test, Y_test)
 ```
 
-![](/output.png)
+![](output.png)
 
 最后模型在训练集上的准确度能达到 94%，在测试集上能达到 78%。模型的方差比较高，还可以继续调节超参数和使用正则项提高模型的性能。
 

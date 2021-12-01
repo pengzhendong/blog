@@ -37,7 +37,7 @@ Y 实质上和 X 相同，只不过是偏移了一步。在训练过程中，给
 
 模型的结构如下图所示：
 
-![](/model.png)
+![](model.png)
 
 每次从 `original_metheny.mid` 中随机选取 30 个值训练模型。与生成恐龙名字的模型类似，$x^{\langle 1 \rangle} = \vec{0}$ 作为输入的开始。
 
@@ -107,7 +107,7 @@ model.fit([X, a0, c0], list(Y), epochs=100)
 
 ### 生成
 
-![](/music_generation.png)
+![](music_generation.png)
 
 在采样的每个时间步中，输出被用于生成音乐和作为下一个时间步的输入。实验步骤如下：
 

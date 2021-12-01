@@ -1,0 +1,49 @@
+name: Hexo Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  HEXO_ALGOLIA_INDEXING_KEY: 4287c8f8a629343c8d2212e108417ceb
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: r-lib/actions/setup-pandoc@v1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+
+      - name: Checkout Hexo
+        uses: actions/checkout@v2
+      - name: Checkout Theme
+        uses: actions/checkout@v2
+        with:
+          repository: theme-next/hexo-theme-next
+          ref: master
+          path: themes/next
+
+      - name: Configuration Environment
+        env:
+          HEXO_DEPLOY_PRI: ${{ secrets.HEXO_DEPLOY_PRI }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$HEXO_DEPLOY_PRI" > ~/.ssh/id_rsa
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Setup Hexo
+        run: |
+          cp -r patch/next themes/next
+          npm install hexo-cli gulp-cli -g
+          npm install
+          hexo clean
+          hexo algolia
+          hexo generate
+          gulp
+          hexo deploy

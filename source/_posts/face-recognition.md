@@ -36,7 +36,7 @@ FaceNet [2] 神经网络可以将一张人脸图像编码成一个 128 维的向
 
 实验使用 FaceNet 提取人脸特征，这个 ConvNet 网络的架构是 Inception 模型，模型细节可以参考 [inception_blocks.py](https://github.com/pengzhendong/DeepLearning/blob/master/4.%20Convolutional%20Neural%20Networks/Week%204/Face%20Recognition/inception_blocks.py)。输入模型的图像尺寸为 $96\times 96$，即输入维度为 $(m, n_C, n_H, n_W) = (m, 3, 96, 96)$，输出为 $(m, 128)$。通过计算两个向量之间的距离，就可以判断对应的两张人脸图像是否属于同一个人。
 
-![](/distance_kiank.png)
+![](distance_kiank.png)
 
 如果编码足够好，即模型提取人脸的特征足够好，那么对于同一个人的不同照片，最后计算的距离应该很小；对于不同人脸，计算出的距离应该很大。FaceNet 在训练过程中使用的三重损失函数就可以保证这个模型提取的特征足够好。
 

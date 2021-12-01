@@ -55,7 +55,7 @@ print(ix_to_char)
   * 使用梯度下降更新规则更新参数
 * 返回学习好的参数
 
-![](/rnn.png)
+![](rnn.png)
 
 在每一个时间步给定前一个字符，RNN 就会预测出下一个字符，所以对于每一个时间步有 $y^{\langle t \rangle} = x^{\langle t+1 \rangle}$。
 
@@ -192,7 +192,7 @@ def rnn_backward(X, Y, parameters, cache):
 
 在反向传播中，我们需要对参数求梯度，然后根据参数梯度更新参数。在更新参数之前，需要对参数梯度进行裁剪，保证梯度不会爆炸，即梯度的取值不会太大。
 
-![](/clip.png)
+![](clip.png)
 
 梯度裁剪的实现有许多不同方法，例如对梯度的 L2 范数进行裁剪和对梯度值进行裁剪，这里实现的是对梯度值进行裁剪，确保梯度在 $[-maxValue, maxValue]$ 中：
 
@@ -248,7 +248,7 @@ def optimize(X, Y, a_prev, parameters, learning_rate = 0.01):
 
 训练出参数后，我们可能想让模型生成一些恐龙的名字，看看效果怎么样，生成流程如下图所示：
 
-![](/dinos3.png)
+![](dinos3.png)
 
 1. $a^{\langle 0\rangle}$ 和 $x^{\langle 1\rangle}$ 为 0 向量
 

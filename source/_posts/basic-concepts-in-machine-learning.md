@@ -66,7 +66,7 @@ $$
 
 假设 $y=f(x)+\epsilon=sin(2\pi x)+\epsilon, x \in [0, 1]$，根据已有数据，我们只能猜测它是一个 M 多项式。
 
-![](/polynomials.jpg)
+![](polynomials.jpg)
 
 M = 0, 1 则欠拟合，因为模型不能在训练集上获得足够低的误差，所以偏差比较大。对于 M = 0，$\hat f(x)=c$ **泛化误差**为：
 $$

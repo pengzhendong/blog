@@ -32,7 +32,7 @@ typora-root-url: ./recurrent-neural-network
 
 在同步序列输入和输出结构中，有 $T_x=T_y$ ，其结构如下图所示：
 
-![](/rnn.png)
+![](rnn.png)
 
 一共有 $T_x$ 个时间步，所以只需要实现一个时间步，然后循环 $T_x$ 次则可以实现 RNN 的前向传播。
 
@@ -40,7 +40,7 @@ typora-root-url: ./recurrent-neural-network
 
 一个循环神经网络可以看成是单个细胞(即时间步)的循环，所有细胞共享参数。细胞内部结构如下图所示：
 
-![](/rnn_step_forward.png)
+![](rnn_step_forward.png)
 
 细胞的输入有当前(第 $t$ 个时间步)的输入 $x^{\langle t\rangle}$ 和之前的隐藏状态 $a^{\langle t-1\rangle}$ (包含了以前的信息)，输出有 $a^{\langle t\rangle}$ 和 $\hat y^{\langle t\rangle}$ 。在前向传播过程中，需要缓存各种值用于反向传播计算参数梯度，实现 RNN 细胞代码主要分为以下几个步骤：
 
@@ -73,7 +73,7 @@ def rnn_cell_forward(xt, a_prev, parameters):
 
 ### RNN 前向传播
 
-![](/cell_rnn.png)
+![](cell_rnn.png)
 
 RNN 的前向传播主要分为以下几个步骤：
 
@@ -135,7 +135,7 @@ $$
 
 基于长短期记忆 (LSTM) 的网络的细胞结构如下图所示：
 
-![](/LSTM.png)
+![](LSTM.png)
 
 **LSTM 最关键的地方就在于细胞的状态 $c^{\langle t\rangle}$，即上图中上面横穿的水平线，这种结构能够很轻松地实现信息从整个细胞中穿过而不做改变(没有经过 $tanh$ 激活函数)，从而实现了长时期的记忆保留**。可以参考反向传播时的分析，LSTM 通过门 (gates) 的结构来实现给细胞的状态添加或者删除信息。
 
@@ -220,7 +220,7 @@ def lstm_cell_forward(xt, a_prev, c_prev, parameters):
 
 ### LSTM 前向传播
 
-![](/LSTM_rnn.png)
+![](LSTM_rnn.png)
 
 类似于 RNN 前向传播，只不过多了一个细胞的状态，所以需要初始化为 0 向量：
 
@@ -265,15 +265,15 @@ def lstm_forward(x, a0, parameters):
 
 在 DeepLearning 课程作业中，RNN 反向传播直接忽略了细胞的输出，没有考虑细胞的输出的误差对参数的梯度，降低了作业的难度，在 LSTM 反向传播中考虑了细胞的输出的误差对参数的梯度。
 
-在预测输出的时候，RNN 使用了 Softmax 函数，关于 Softmax 函数的求导过程可以参考 [Logistic 回归和 Softmax 回归](/2018/04/26/Logistic-regression)。RNN 在时间步上反向传播，因此也叫做 BackPropagation Through Time(BPTT) 算法。
+在预测输出的时候，RNN 使用了 Softmax 函数，关于 Softmax 函数的求导过程可以参考 [Logistic 回归和 Softmax 回归](/2018/04/26/logistic-regression)。RNN 在时间步上反向传播，因此也叫做 BackPropagation Through Time(BPTT) 算法。
 
 ### 简单版 RNN 细胞
 
 没有输出只有隐藏状态的 RNN 细胞的反向传播过程如下图所示：
 
-![](/rnn_cell_backprop.png)
+![](rnn_cell_backprop.png)
 
-由链式求导公式、复合求导公式和矩阵的求导公式或者参考[单隐层神经网络](/2018/05/19/Neuron-network)可以推导出右边的表达式，其代码实现如下：
+由链式求导公式、复合求导公式和矩阵的求导公式或者参考[单隐层神经网络](/2018/05/19/neuron-network)可以推导出右边的表达式，其代码实现如下：
 
 ```python
 def rnn_cell_backward(da_next, cache):

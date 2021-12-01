@@ -17,7 +17,7 @@ typora-root-url: ./neural-style-transfer
 
 在学习风格迁移之前，首先了解一下卷积神经网络的可视化。训练好的 CNN 模型的隐藏层中的每一个滤波器对应一种特征，每一个滤波器与输入的图像进行卷积运算后经过激活层。如果输入的图像具有该滤波器对应的特征，那么经过激活层后就会被激活，即输出特征图对应的数值大于 0。可视化过程涉及到反卷积和反池化，具体过程可参考 Visualizing and Understanding Convolutional Networks [2]。[DeepVis Toolbox](https://github.com/yosinski/deep-visualization-toolbox) 是一个开源的可视化工具，可视化结果如下图所示：
 
-![](/example_bvlc-googlenet_bus.png)
+![](example_bvlc-googlenet_bus.png)
 
 图中可视化的是 GoogleNet，输入为一张公交车的图像，每个小方块表示一个滤波器。将滤波器反卷积和反池化回原图像，结果如左下角所示。
 
@@ -25,7 +25,7 @@ typora-root-url: ./neural-style-transfer
 
 给定一张内容图像 C 和一张风格图像 S，风格迁移模型生成一张具有 C 的内容和 S 的风格图像 G。如下图所示：
 
-![](/perspolis_vangogh.png)
+![](perspolis_vangogh.png)
 
 ### 迁移学习
 
@@ -68,7 +68,7 @@ J_{content}(C,G) =  \frac{1}{4 \times n_H \times n_W \times n_C}\sum _{ \text{al
 $$
 其中 $n_H$、$n_W$ 和 $n_C$ 分别表示特征图的高、宽和通道数。为了**便于理解**，将 3 维的特征图展开成两维，如下所示：
 
-![](/reshape_loss.png)
+![](reshape_loss.png)
 
 由于 `reshape` 只是修改维度，而不改变填充顺序，因此需要先使用 `transpose` 对矩阵进行转置。使用 Tensorflow 实现内容代码函数分为以下三个步骤：
 
@@ -99,7 +99,7 @@ def compute_content_cost(a_C, a_G):
 
 给定展开成两维的特征图矩阵，其由 $n_C$ 个横向量$(v_{1},\dots ,v_{n_H\times n_W})$ 组成。根据定义，Gram 矩阵中每个元素的值 ${\displaystyle G_{ij} = v_{i}^T v_{j} = np.dot(v_{i}, v_{j})  }$，即 $G_{ij}$ 衡量滤波器 $i$ 的激活值 $v_i$ 和滤波器 $j$ 的激活值 $v_j$ 的相似性，如下图所示：
 
-![](/NST_GM.png)
+![](NST_GM.png)
 
 输出的 Gram 矩阵的维度为 $(n_C, n_C)$，值得注意的是 $G_{ii} = v_{i}^T v_{i}$ 衡量的是图像中滤波器 $i$ 对应的特征的活跃性。假设 $i$ 对应水平纹理，$G_{ii}$ 的值越大就表示图像中水平纹理越多。通过计算各种特征之间的 $G_{ij}$ 即这些特征同时出现的可能性，就可以衡量一张图像的风格。
 

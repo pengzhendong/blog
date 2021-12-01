@@ -35,7 +35,7 @@ $$
 $$
 其中分子是两个向量的点乘，分母是两个向量的二范数的乘积，$\theta$ 是两个向量形成的角度。两个向量越相似，余弦相似度就越接近于 1，不相似则取值会很小。图像如下图所示：
 
-![](/cosine_sim.png)
+![](cosine_sim.png)
 
 ```python
 def cosine_similarity(u, v):
@@ -191,7 +191,7 @@ engineer [-0.0803928]
 
 假如词嵌入是 50 维，则可以分为两部分：偏置方向 $g$ 和其余的 49 维 $g_{\perp}$。其余的 49 维与性别无关，所以是正交的。下面的任务就是把向量 $e_{receptionist}$ 的 $g$ 方向置 0，得到 $e_{receptionist}^{debiased}$。如下图所示：
 
-![](/neutral.png)
+![](neutral.png)
 $$
 e^{bias\\_component} = \frac{e \cdot g}{||g||_2^2} * g
 $$
@@ -222,7 +222,7 @@ def neutralize(word, g, word_to_vec_map):
 
 均衡算法可以应用于两个只有性别之分的词。例如男演员 (actor) 和女演员 (actress)，可能女演员更接近保姆 (babysit)，通过对 babysit 的中和可以减少保姆和性别的关联性，但是还是不能保证这两种演员和其他词的关联性是否相同。均衡算法就可以处理这个问题，均衡算法的原理如下图所示：
 
-![](/equalize.png)
+![](equalize.png)
 
 原理就是保证这两个词到 49 维的 $g_\perp$ 的距离相等，公式参考 Bolukbasi et al., 2016：
 $$

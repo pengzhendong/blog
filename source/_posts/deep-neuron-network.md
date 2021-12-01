@@ -27,7 +27,7 @@ typora-root-url: ./deep-neuron-network
 
 ReLU 函数是一个分段函数，其函数图如下图所示：
 
-![](/ReLU.png)
+![](ReLU.png)
 $$
 ReLU(x)=max(0, x)
 $$
@@ -41,7 +41,7 @@ $$
 \Psi(x)=ReLU(x)-ReLU(x-1)=max(0, x)-max(0, x-1)
 $$
 
-![](/squashing.png)
+![](squashing.png)
 
 使用 ReLU 函数作为激活函数的最大好处是激活状态的神经元的梯度不会消失，且梯度固定可以加快学习速度；其次，对于**每个样本数据**，一部分神经元输出为 0 造成了网络的稀疏性，缓解了过拟合问题的发生。虽然**每个样本数据**经过神经网络后的输出都是输入的线性组合，但是不同的输入激活的神经元是不同的，正是因为这种变换引入了非线性。例如单隐层神经网络拟合 $f(x)=x^2$:
 
@@ -127,7 +127,7 @@ He 初始化的思想是：在 ReLU 网络中，假设有一般的神经元被�
    * 前 L-1 层： `[LINEAR->ACTIVATION]`，最后一层： `[LINEAR->SIGMOID]`
 5. 更新参数
 
-![](/final outline.png)
+![](final outline.png)
 
 #### 初始化模型参数
 
@@ -297,7 +297,7 @@ $$
 
 * L 层反向模型
 
-  在反向传播的时候，首先需要计算代价函数对模型输出 $A^{[L]}$(即 $\hat Y$) 的梯度(计算公式见[单隐层神经网络](/2018/05/19/Neuron-network/))，然后调用 `linear_activation_backward` 函数，最后返回计算出的梯度列表：
+  在反向传播的时候，首先需要计算代价函数对模型输出 $A^{[L]}$(即 $\hat Y$) 的梯度(计算公式见[单隐层神经网络](/2018/05/19/neuron-network/))，然后调用 `linear_activation_backward` 函数，最后返回计算出的梯度列表：
 
   ``` python
 def L_model_backward(AL, Y, caches):
