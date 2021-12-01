@@ -180,13 +180,13 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   GitHub: https://github.com/pengzhendong || fab fa-github
-  Twitter: https://twitter.com/pengzhendong || fab fa-twitter  
+  Twitter: https://twitter.com/pengzhendong || fab fa-twitter
   E-Mail: mailto:275331498@qq.com || fa fa-envelope
   FaceBook: https://www.facebook.com/pengzhendong || fab fa-facebook
   Telegram: https://t.me/pengzhendong || fab fa-telegram
   知乎: https://www.zhihu.com/people/pengzhendong || fab fa-leanpub
   微博: https://weibo.com/qq275331498 || fab fa-weibo
-  关于: /about" target="_self || fa fa-user
+  关于: /about || fa fa-user
 
 social_icons:
   enable: true

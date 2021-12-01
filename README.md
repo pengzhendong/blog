@@ -20,53 +20,35 @@ npm install
 
 ###  安装 next 主题
 
+更改 next 主题中分享按钮的位置，调小字体:
+
 ``` bash
 git clone https://github.com/theme-next/hexo-theme-next themes/next
+cp -r patch/next themes/next
 ```
 
-### 安装插件
+修改好的配置文件 `source/_data/next.yml` 会覆盖主题配置文件。
 
-[hexo-renderer-pandoc](https://github.com/wzpan/hexo-renderer-pandoc) 支持原生 latex，不需要转义
+插件参考 `package.json`，手动安装命令:
 
 ``` bash
-npm uninstall hexo-renderer-marked --save
-npm install hexo-renderer-pandoc --save
-```
+npm uninstall hexo-renderer-marked
+npm install hexo-renderer-pandoc     # 解决 latex 公式与 markdown 的冲突，需要安装 pandoc
 
-[hexo-symbols-count-time](https://github.com/theme-next/hexo-symbols-count-time) 阅读所需时间
+npm install hexo-algolia
+npm install hexo-deployer-git        # git 部署 public 目录
+npm install hexo-filter-mathjax      # 根据 title 中 mathjax: true 决定是否加载 mathjax
+npm install hexo-generator-searchdb
+npm install hexo-pangu
+npm install hexo-symbols-count-time
+npm install hexo-leancloud-counter-security
 
-``` yaml
-symbols_count_time:
-  symbols: true
-  time: true
-  total_symbols: true
-  total_time: true
-  exclude_codeblock: false
-  awl: 4
-  wpm: 275
-  suffix: "mins."
-```
+npm install hexo-generator-sitemap   # sitemap 为站点文件，用于提交 SEO
+npm install hexo-generator-baidu-sitemap
 
-``` bash
-npm install hexo-symbols-count-time --save
-```
-
-[hexo-generator-searchdb](https://github.com/theme-next/hexo-generator-searchdb) 生成搜索数据
-
-``` yaml
-search:
-  path: search.xml
-  field: post
-  content: true
-  format: html
-```
-
-``` bash
-npm install hexo-generator-searchdb --save
-```
-
-[hexo-pangu](https://github.com/theme-next/hexo-pangu) 汉字与英语之间空格
-
-``` bash
-npm install theme-next/hexo-filter-pangu --save
+npm install gulp
+npm install gulp-clean-css
+npm install gulp-terser
+npm install gulp-htmlclean
+npm install gulp-htmlmin-terser
 ```

@@ -24,8 +24,6 @@ type: "friends"
 
 那么就交换一个友情链接吧！只要在评论中留下站点即可~
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=300 src="//music.163.com/outchain/player?type=0&id=153164758&auto=1&height=4500"></iframe>
-
 ## 友情链接
 
 <script src = "https://cdn.wilddog.com/js/client/current/wilddog.js" ></script>
