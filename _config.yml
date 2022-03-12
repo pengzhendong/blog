@@ -28,8 +28,8 @@ leancloud_counter_security:
 
 # For theme-next-algolia-instant-search plugin
 algolia:
-  applicationID: 39IHYBUVGR
-  apiKey: 4287c8f8a629343c8d2212e108417ceb
+  applicationID: 0C48U14D5U
+  apiKey: 796da148bd60fa95ebae037cae6d5c16
   indexName: Notes
   chunkSize: 5000
 

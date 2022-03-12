@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  HEXO_ALGOLIA_INDEXING_KEY: 4287c8f8a629343c8d2212e108417ceb
+  HEXO_ALGOLIA_INDEXING_KEY: fa20b2f5079dd134f1da83def9171ac4
 
 jobs:
   build:
