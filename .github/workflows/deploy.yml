@@ -27,16 +27,6 @@ jobs:
           ref: master
           path: themes/next
 
-      - name: Configuration Environment
-        env:
-          HEXO_DEPLOY_PRI: ${{ secrets.HEXO_DEPLOY_PRI }}
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$HEXO_DEPLOY_PRI" > ~/.ssh/id_rsa
-          chmod 700 ~/.ssh
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-
       - name: Setup Hexo
         run: |
           cp -r patch/next themes/next
@@ -46,4 +36,9 @@ jobs:
           hexo algolia
           hexo generate
           gulp
-          hexo deploy
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_dir: public

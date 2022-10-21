@@ -59,7 +59,7 @@ p.image-caption {
 <script type="text/javascript">
     $(document).scroll(function (){
         if ($(document).scrollTop() > '355') {
-        	$('.sidebar').offset({top:$(document).scrollTop()+10});
+          $('.sidebar').offset({top:$(document).scrollTop()+10});
         }else if($(document).scrollTop() <= '355') {
         	$('.sidebar').offset({top:355});
         };
@@ -67,14 +67,14 @@ p.image-caption {
 </script>
 
 <script type="text/javascript">
-	jQuery(window).resize(function() { $(".content-wrap").height($(".post-body").height() + 65); });
+  jQuery(window).resize(function() { $(".content-wrap").height($(".post-body").height() + 65); });
 
   function sort(a, b) {
     return new Date(a.date).getTime() - new Date(b.date).getTime();
   }
 
-	$(document).ready(function() {
-		$.getJSON("books.json", function(books) {
+  $(document).ready(function() {
+    $.getJSON("books.json", function(books) {
       var count = books.length;
       $("#books_count").html(count);
 
@@ -84,14 +84,14 @@ p.image-caption {
     })
   });
 
-	function appendContent(book) {
+  function appendContent(book) {
     var year = book.date.substring(0, 4);
-		var impression_url = '<a href="' + year + '#' + book.name + '"><img src="' + year + '/covers/' + book.name + '.jpg" title="跳转到读书感悟"></a>';
-		var douban_url = '<a target="_blank" href="' + book.url + '" title="跳转到豆瓣读书"><div class="name">' + book.name + '</div></a>'
-		var date_color = '<div class="date" style="background-color: #5cb85c; border-color: #4cae4c;">' + book.date + '</div>';
-		var content = '<div class="img" display="inline-block">' + impression_url + douban_url + date_color + '</div>';
-    
-		$("#books_read").html(content + $("#books_read").html());
-		$(".content-wrap").height($(".post-body").height() + 65);
-	}
+    var impression_url = '<a href="' + year + '#' + book.name + '"><img src="' + year + '/covers/' + book.name + '.jpg" title="跳转到读书感悟"></a>';
+    var douban_url = '<a target="_blank" href="' + book.url + '" title="跳转到豆瓣读书"><div class="name">' + book.name + '</div></a>'
+    var date_color = '<div class="date" style="background-color: #5cb85c; border-color: #4cae4c;">' + book.date + '</div>';
+    var content = '<div class="img" display="inline-block">' + impression_url + douban_url + date_color + '</div>';
+
+    $("#books_read").html(content + $("#books_read").html());
+    $(".content-wrap").height($(".post-body").height() + 65);
+  }
 </script>

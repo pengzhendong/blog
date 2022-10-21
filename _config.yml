@@ -43,7 +43,7 @@ symbols_count_time:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://pengzhendong.github.io
+url: https://pengzhendong.github.io/hexo
 permalink: :year/:month/:day/:title/
 permalink_defaults:
   pretty_urls:
@@ -133,7 +133,3 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@github.com:pengzhendong/pengzhendong.github.io.git
-  branch: master
-  name: pengzhendong
-  email: 275331498@qq.com
