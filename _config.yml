@@ -43,7 +43,7 @@ symbols_count_time:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://pengzhendong.cn
+url: https://pengzhendong.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
   pretty_urls:
